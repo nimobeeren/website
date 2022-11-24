@@ -1,28 +1,29 @@
 ---
-import Layout from '@layouts/Layout.astro';
+import me from "@images/me.webp";
+import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="Nimo Beeren">
-	<main>
-		<p>Hi there! 👋</p>
-		<h1><span>I'm</span> Nimo Beeren</h1>
-		<p>I'm a software engineer based in Eindhoven, The Netherlands. I enjoy building tools that help people use data, code and science to create great things.</p>
-	</main>
+  <main class="max-w-screen-xl mx-auto py-24">
+    <div class="flex items-end gap-8">
+      <h1 class="text-8xl">Nimo<br />Beeren</h1>
+      <p class="text-xl leading-none">he/him</p>
+    </div>
+    <div class="flex flex-col gap-4 max-w-2xl text-3xl mt-12">
+      <p>Hi there! 👋</p>
+      <p>
+        I'm a software engineer based in Eindhoven. I build tools that help
+        people use data, code and science to create great things.
+      </p>
+    </div>
+    <div class="flex justify-center">
+      <div class="flex mt-24 gap-4 items-center mx-auto p-8 bg-sky-200 rounded-3xl">
+        <img src={me} width="192" class="rounded-full" />
+        <div class="flex flex-col gap-8 items-center">
+          <p class="text-3xl">I'm looking for new challenges!</p>
+          <button class="text-xl text-white bg-sky-500 px-6 py-5 rounded-3xl">Get in touch</button>
+        </div>
+      </div>
+    </div>
+  </main>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	span {
-		font-size: 1rem;
-		font-weight: 400;
-	}
-</style>
