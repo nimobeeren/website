@@ -1,27 +1,39 @@
 ---
+import "@fontsource/dm-sans/500.css";
+import "@fontsource/dm-serif-display";
 import me from "@images/me.webp";
 import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="Nimo Beeren">
-  <main class="max-w-screen-xl mx-auto py-24">
-    <div class="flex items-end gap-8">
-      <h1 class="text-8xl">Nimo<br />Beeren</h1>
-      <p class="text-xl leading-none">he/him</p>
-    </div>
-    <div class="flex flex-col gap-4 max-w-2xl text-3xl mt-12">
+  <main class="max-w-screen-xl mx-auto py-24 font-medium text-neutral-600">
+    <h1 class="text-8xl font-serif font-normal text-neutral-800 inline-block">
+      Nimo<br />Beeren
+    </h1>
+    <p class="text-xl ml-8 leading-none inline-block" aria-label="pronouns">he/him</p>
+    <div
+      class="flex flex-col gap-4 max-w-[624px] text-3xl leading-normal mt-12"
+    >
       <p>Hi there! 👋</p>
       <p>
         I'm a software engineer based in Eindhoven. I build tools that help
         people use data, code and science to create great things.
       </p>
     </div>
-    <div class="flex justify-center">
-      <div class="flex mt-24 gap-4 items-center mx-auto p-8 bg-sky-200 rounded-3xl">
+    <div class="flex justify-center mt-24">
+      <div
+        class="flex gap-12 items-center mx-auto py-8 px-12 bg-sky-100 rounded-3xl"
+      >
         <img src={me} width="192" class="rounded-full" />
-        <div class="flex flex-col gap-8 items-center">
-          <p class="text-3xl">I'm looking for new challenges!</p>
-          <button class="text-xl text-white bg-sky-500 px-6 py-5 rounded-3xl">Get in touch</button>
+        <div class="flex flex-col gap-4 items-center">
+          <p class="text-3xl text-sky-500">I'm looking for new challenges!</p>
+          <button
+            class="text-2xl text-white bg-sky-500 px-6 py-5 rounded-full flex gap-4 items-center leading-none"
+            >Get in touch<span
+              aria-label="envelope"
+              class="text-3xl leading-none">✉️</span
+            >
+          </button>
         </div>
       </div>
     </div>
