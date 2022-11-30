@@ -6,13 +6,25 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="Nimo Beeren">
-  <main class="max-w-screen-xl mx-auto py-24 font-medium text-neutral-600">
-    <h1 class="text-8xl font-serif font-normal text-neutral-800 inline-block">
-      Nimo<br />Beeren
-    </h1>
-    <p class="text-xl ml-8 leading-none inline-block" aria-label="pronouns">he/him</p>
+  <main class="max-w-screen-xl mx-auto py-24 font-medium text-neutral-700">
+    <div class="flex justify-between items-end gap-16 mx-auto max-w-[1056px]">
+      <div class="border-b-sky-300 border-b-4 whitespace-nowrap">
+        <h1
+          class="text-8xl font-serif font-normal text-neutral-800 inline-block"
+        >
+          Nimo<br />Beeren
+        </h1>
+        <p class="text-xl ml-8 leading-none inline-block" aria-label="pronouns">
+          he/him
+        </p>
+      </div>
+      <div>
+        <img src={me} class="rounded-full drop-shadow-[0_0_128px_theme(colors.sky.300)]" />
+      </div>
+    </div>
+
     <div
-      class="flex flex-col gap-4 max-w-[624px] text-3xl leading-normal mt-12"
+      class="flex flex-col gap-4 mx-auto max-w-[624px] text-3xl leading-normal mt-32"
     >
       <p>Hi there! 👋</p>
       <p>
@@ -20,7 +32,7 @@ import Layout from "@layouts/Layout.astro";
         people use data, code and science to create great things.
       </p>
     </div>
-    <div class="flex justify-center mt-24">
+    <!-- <div class="flex justify-center mt-24">
       <div
         class="flex gap-12 items-center mx-auto py-8 px-12 bg-sky-100 rounded-3xl"
       >
@@ -36,6 +48,6 @@ import Layout from "@layouts/Layout.astro";
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
   </main>
 </Layout>
