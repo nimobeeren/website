@@ -10,7 +10,8 @@ module.exports = {
         serif: ['"DM Serif Display"', ...defaultTheme.fontFamily.serif],
       },
     }
-    
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 };
