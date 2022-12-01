@@ -1,0 +1,58 @@
+---
+import Card from "@components/Card.astro";
+import thesisImage from "@images/thesis.webp";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Nimo's Projects">
+  <main class="mx-auto max-w-[1424px] text-neutral-700 font-medium">
+    <h1 class="font-serif text-7xl text-neutral-800 mx-auto">Projects</h1>
+    <ul class="mt-16 flex gap-12 flex-wrap">
+      <Card
+        type="Thesis"
+        title="Property Graph Schemas"
+        body="This is my master's thesis about formal specification and practical validation of property graph schemas."
+        date={new Date("2022-10-16")}
+        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+      >
+        <img src={thesisImage} />
+      </Card>
+      <Card
+        type="Paper"
+        title="Visual Property Graph Schema Design"
+        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
+        date={new Date("2022-01-10")}
+        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+      >
+        <img src={thesisImage} />
+      </Card>
+      <Card
+        type="Paper"
+        title="Visual Property Graph Schema Design"
+        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
+        date={new Date("2022-01-10")}
+        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+      >
+        <img src={thesisImage} />
+      </Card>
+      <Card
+        type="Paper"
+        title="Visual Property Graph Schema Design"
+        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
+        date={new Date("2022-01-10")}
+        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+      >
+        <img src={thesisImage} />
+      </Card>
+      <Card
+        type="Paper"
+        title="Visual Property Graph Schema Design"
+        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
+        date={new Date("2022-01-10")}
+        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+      >
+        <img src={thesisImage} />
+      </Card>
+    </ul>
+  </main>
+</Layout>
