@@ -1,7 +1,9 @@
 ---
+import Card from "@components/Card.astro";
 import "@fontsource/dm-sans/500.css";
 import "@fontsource/dm-serif-display";
-import me from "@images/me.webp";
+import meImage from "@images/me.webp";
+import thesisImage from "@images/thesis.webp";
 import Layout from "@layouts/Layout.astro";
 import { Icon } from "astro-icon";
 ---
@@ -21,7 +23,7 @@ import { Icon } from "astro-icon";
       </div>
       <div>
         <img
-          src={me}
+          src={meImage}
           class="rounded-full drop-shadow-[0_0_128px_theme(colors.sky.300)]"
         />
       </div>
@@ -39,14 +41,68 @@ import { Icon } from "astro-icon";
 
     <section class="mt-40 flex flex-col items-center mx-auto">
       <h2 class="font-serif text-6xl font-normal text-neutral-800">Projects</h2>
-      <div class="flex gap-12 mt-24 max-w-full flex-wrap justify-center">
+      <ul class="flex gap-12 mt-24 max-w-full flex-wrap justify-center">
+        <Card
+          type="Thesis"
+          title="Property Graph Schemas"
+          body="This is my master's thesis about formal specification and practical validation of property graph schemas."
+          date={new Date("2022-10-16")}
+          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+        >
+          <img src={thesisImage} />
+        </Card>
+        <Card
+          type="Paper"
+          title="Visual Property Graph Schema Design"
+          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
+          date={new Date("2022-01-10")}
+          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+        >
+          <img src={thesisImage} />
+        </Card>
+        <Card
+          type="Tool"
+          title="WebTeX"
+          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
+          date={new Date("2021-12-09")}
+          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+        >
+          <img src={thesisImage} />
+        </Card>
+        <Card
+          type="Game"
+          title="DM-Guessr"
+          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
+          date={new Date("2021-05-11")}
+          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+        >
+          <img src={thesisImage} />
+        </Card>
+        <Card
+          type="Visualization"
+          title="Load Balancing Algorithms"
+          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
+          date={new Date("2020-11-02")}
+          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+        >
+          <img src={thesisImage} />
+        </Card>
+        <Card
+          type="Tool"
+          title="css2js"
+          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
+          date={new Date("2020-01-10")}
+          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
+        >
+          <img src={thesisImage} />
+        </Card>
+        <!-- <div class="bg-sky-100 rounded-2xl flex-shrink-0 w-80 h-[544px]"></div>
         <div class="bg-sky-100 rounded-2xl flex-shrink-0 w-80 h-[544px]"></div>
         <div class="bg-sky-100 rounded-2xl flex-shrink-0 w-80 h-[544px]"></div>
         <div class="bg-sky-100 rounded-2xl flex-shrink-0 w-80 h-[544px]"></div>
         <div class="bg-sky-100 rounded-2xl flex-shrink-0 w-80 h-[544px]"></div>
-        <div class="bg-sky-100 rounded-2xl flex-shrink-0 w-80 h-[544px]"></div>
-        <div class="bg-sky-100 rounded-2xl flex-shrink-0 w-80 h-[544px]"></div>
-      </div>
+        <div class="bg-sky-100 rounded-2xl flex-shrink-0 w-80 h-[544px]"></div> -->
+      </ul>
       <a
         class="text-3xl text-sky-700 leading-none mt-16 flex gap-2 items-center justify-center"
         href="/projects"
@@ -87,7 +143,7 @@ import { Icon } from "astro-icon";
       <div
         class="flex gap-12 items-center mx-auto py-8 px-12 bg-sky-100 border-b-4 border-b-sky-300"
       >
-        <img src={me} width="192" class="rounded-full" />
+        <img src={meImage} width="192" class="rounded-full" />
         <div class="flex flex-col gap-6 items-center">
           <p class="text-3xl text-sky-700">I'm looking for new challenges!</p>
           <a
