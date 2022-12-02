@@ -10,15 +10,15 @@ export interface Props {
 const { type, title, body, date, href } = Astro.props;
 ---
 
-<li class="max-w-xs rounded-2xl overflow-hidden drop-shadow-xl bg-white">
+<li class="max-w-xs overflow-hidden rounded-2xl bg-white drop-shadow-xl">
   <article>
     <a href={href}>
       <slot />
-      <div class="p-8 flex justify-between flex-col h-96">
+      <div class="flex h-96 flex-col justify-between p-8">
         <div>
           <header>
-            <p class="text-sky-700 text-lg font-medium leading-none">{type}</p>
-            <h1 class="text-neutral-800 text-2xl mt-2 leading-tight"> 
+            <p class="text-lg font-medium leading-none text-sky-700">{type}</p>
+            <h1 class="mt-2 text-2xl leading-tight text-neutral-800">
               {title}
             </h1>
           </header>

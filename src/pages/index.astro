@@ -7,15 +7,15 @@ import { Icon } from "astro-icon";
 ---
 
 <Layout title="Nimo Beeren">
-  <main class="max-w-screen-xl mx-auto text-neutral-700 font-medium">
-    <div class="flex justify-between items-end gap-16 mx-auto max-w-[1056px]">
-      <div class="border-b-sky-300 border-b-4 whitespace-nowrap">
+  <main class="mx-auto max-w-screen-xl font-medium text-neutral-700">
+    <div class="mx-auto flex max-w-[1056px] items-end justify-between gap-16">
+      <div class="whitespace-nowrap border-b-4 border-b-sky-300">
         <h1
-          class="text-8xl font-serif font-normal text-neutral-800 inline-block"
+          class="inline-block font-serif text-8xl font-normal text-neutral-800"
         >
           Nimo<br />Beeren
         </h1>
-        <p class="text-xl ml-8 leading-none inline-block" aria-label="pronouns">
+        <p class="ml-8 inline-block text-xl leading-none" aria-label="pronouns">
           he/him
         </p>
       </div>
@@ -28,7 +28,7 @@ import { Icon } from "astro-icon";
     </div>
 
     <header
-      class="flex flex-col gap-4 mx-auto max-w-[624px] text-3xl leading-normal mt-32"
+      class="mx-auto mt-32 flex max-w-[624px] flex-col gap-4 text-3xl leading-normal"
     >
       <p>Hi there! 👋</p>
       <p>
@@ -37,9 +37,9 @@ import { Icon } from "astro-icon";
       </p>
     </header>
 
-    <section class="mt-40 flex flex-col items-center mx-auto">
+    <section class="mx-auto mt-40 flex flex-col items-center">
       <h2 class="font-serif text-6xl font-normal text-neutral-800">Projects</h2>
-      <ul class="flex gap-12 mt-16 max-w-full flex-wrap justify-center">
+      <ul class="mt-16 flex max-w-full flex-wrap justify-center gap-12">
         <Card
           type="Thesis"
           title="Property Graph Schemas"
@@ -96,16 +96,16 @@ import { Icon } from "astro-icon";
         </Card>
       </ul>
       <a
-        class="text-3xl text-sky-700 leading-none mt-16 flex gap-2 items-center justify-center"
+        class="mt-16 flex items-center justify-center gap-2 text-3xl leading-none text-sky-700"
         href="/projects"
         ><div>See more</div>
         <Icon pack="heroicons-solid" name="arrow-right" size={30} />
       </a>
     </section>
 
-    <section class="mt-40 flex flex-col items-center max-w-[80ch] mx-auto">
+    <section class="mx-auto mt-40 flex max-w-[80ch] flex-col items-center">
       <h2 class="font-serif text-6xl font-normal text-neutral-800">About me</h2>
-      <div class="text-3xl mt-16 leading-normal flex flex-col gap-4">
+      <div class="mt-16 flex flex-col gap-4 text-3xl leading-normal">
         <p>
           During my master's on computer science & engineering at TU/e I learned
           to do independent research, becoming fluent in the academic language.
@@ -124,22 +124,22 @@ import { Icon } from "astro-icon";
         </p>
       </div>
       <a
-        class="text-3xl text-sky-700 leading-none mt-16 flex gap-2 items-center justify-center"
+        class="mt-16 flex items-center justify-center gap-2 text-3xl leading-none text-sky-700"
         href="/about"
         ><div>Read more</div>
         <Icon pack="heroicons-solid" name="arrow-right" size={30} />
       </a>
     </section>
 
-    <section class="flex justify-center mt-40">
+    <section class="mt-40 flex justify-center">
       <div
-        class="flex gap-12 items-center mx-auto py-8 px-12 bg-sky-100 border-b-4 border-b-sky-300"
+        class="mx-auto flex items-center gap-12 border-b-4 border-b-sky-300 bg-sky-100 py-8 px-12"
       >
         <img src={meImage} width="192" class="rounded-full" />
-        <div class="flex flex-col gap-6 items-center">
+        <div class="flex flex-col items-center gap-6">
           <p class="text-3xl text-sky-700">I'm looking for new challenges!</p>
           <a
-            class="text-2xl text-white bg-sky-600 px-12 py-5 rounded-3xl flex gap-4 items-center leading-none"
+            class="flex items-center gap-4 rounded-3xl bg-sky-600 px-12 py-5 text-2xl leading-none text-white"
             href="mailto:nimobeern@gmail.com"
             >Send me an email<span
               aria-label="envelope"
