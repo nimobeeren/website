@@ -4,6 +4,11 @@ import meImage from "@images/me.webp";
 import thesisImage from "@images/thesis.webp";
 import Layout from "@layouts/Layout.astro";
 import { Icon } from "astro-icon";
+import { projects } from "../data/projects";
+
+const featuredProjects = projects
+  .filter((project) => project.featured)
+  .sort((a, b) => Number(a.date) - Number(b.date));
 ---
 
 <Layout title="Nimo Beeren">
@@ -40,60 +45,19 @@ import { Icon } from "astro-icon";
     <section class="mx-auto mt-32 flex flex-col items-center">
       <h2 class="font-serif text-6xl font-normal text-neutral-800">Projects</h2>
       <ul class="mt-16 flex max-w-full flex-wrap justify-center gap-12">
-        <Card
-          type="Thesis"
-          title="Property Graph Schemas"
-          body="This is my master's thesis about formal specification and practical validation of property graph schemas."
-          date="2022-10-16"
-          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-        >
-          <img src={thesisImage} />
-        </Card>
-        <Card
-          type="Paper"
-          title="Visual Property Graph Schema Design"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
-          date="2022-01-10"
-          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-        >
-          <img src={thesisImage} />
-        </Card>
-        <Card
-          type="Tool"
-          title="WebTeX"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
-          date="2021-12-09"
-          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-        >
-          <img src={thesisImage} />
-        </Card>
-        <Card
-          type="Game"
-          title="DM-Guessr"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
-          date="2021-05-11"
-          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-        >
-          <img src={thesisImage} />
-        </Card>
-        <Card
-          type="Visualization"
-          title="Load Balancing Algorithms"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
-          date="2020-11-02"
-          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-        >
-          <img src={thesisImage} />
-        </Card>
-        <Card
-          type="Tool"
-          title="css2js"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
-          date="2020-01-10"
-          href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-        >
-          <img src={thesisImage} />
-        </Card>
+        {
+          featuredProjects.map((project) => (
+            <Card
+              type={project.type}
+              title={project.title}
+              body={project.body || ""}
+              date={project.date}
+              href={project.href}
+            >
+              <img src={thesisImage} />
+            </Card>
+          ))
+        }
       </ul>
       <a
         class="mt-16 flex items-center justify-center gap-2 text-3xl leading-none text-sky-700"
