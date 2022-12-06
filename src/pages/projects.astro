@@ -2,57 +2,28 @@
 import Card from "@components/Card.astro";
 import thesisImage from "@images/thesis.webp";
 import Layout from "@layouts/Layout.astro";
+import { projects } from "../data/projects";
+
+const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
 ---
 
 <Layout title="Nimo's Projects">
   <main class="mx-auto max-w-[1424px] font-medium text-neutral-700">
     <h1 class="mx-auto font-serif text-7xl text-neutral-800">Projects</h1>
     <ul class="mt-16 flex flex-wrap gap-12">
-      <Card
-        type="Thesis"
-        title="Property Graph Schemas"
-        body="This is my master's thesis about formal specification and practical validation of property graph schemas."
-        date={new Date("2022-10-16")}
-        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-      >
-        <img src={thesisImage} />
-      </Card>
-      <Card
-        type="Paper"
-        title="Visual Property Graph Schema Design"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
-        date={new Date("2022-01-10")}
-        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-      >
-        <img src={thesisImage} />
-      </Card>
-      <Card
-        type="Paper"
-        title="Visual Property Graph Schema Design"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
-        date={new Date("2022-01-10")}
-        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-      >
-        <img src={thesisImage} />
-      </Card>
-      <Card
-        type="Paper"
-        title="Visual Property Graph Schema Design"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
-        date={new Date("2022-01-10")}
-        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-      >
-        <img src={thesisImage} />
-      </Card>
-      <Card
-        type="Paper"
-        title="Visual Property Graph Schema Design"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in arcu in justo condimentum consequat. Duis at mi lacinia, consequat tortor."
-        date={new Date("2022-01-10")}
-        href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-      >
-        <img src={thesisImage} />
-      </Card>
+      {
+        sortedProjects.map((project) => (
+          <Card
+            type={project.type}
+            title={project.title}
+            body={project.body || ""}
+            date={project.date}
+            href={project.href}
+          >
+            <img src={thesisImage} />
+          </Card>
+        ))
+      }
     </ul>
   </main>
 </Layout>

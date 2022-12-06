@@ -1,4 +1,13 @@
-[
+export type Project = {
+  type: string;
+  title: string;
+  body: string | null;
+  date: string;
+  href: string;
+  featured: boolean;
+}
+
+export const projects: Project[] = [
   {
     "type": "Thesis",
     "title": "Property Graph Schemas",
@@ -20,7 +29,7 @@
     "title": "WebTeX",
     "body": null,
     "date": "2021-12-09",
-    "href": "https://github.com/nimobeeren/webtex",
+    "href": "https://webtex.vercel.app/",
     "featured": true
   },
   {
@@ -44,7 +53,8 @@
     "title": "Bird Migration",
     "body": null,
     "date": "2021-02-06",
-    "href": "https://github.com/nimobeeren/2IMV20/tree/main/InfoVis"
+    "href": "https://github.com/nimobeeren/2IMV20/tree/main/InfoVis",
+    "featured": false
   },
   {
     "type": "Visualization",
