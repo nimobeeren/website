@@ -27,7 +27,7 @@ export const projects: Project[] = [
   {
     "type": "Tool",
     "title": "WebTeX",
-    "body": "Frustrated with LaTeX, I developed a tool for scientific and technical writing based on Markdown. It lets you write math, citations, and cross-references.",
+    "body": "Frustrated with LaTeX, I developed a tool for scientific and technical writing based on Markdown. It supports math, citations, and cross-references.",
     "date": "2021-12-09",
     "href": "https://webtex.vercel.app/",
     "featured": true
@@ -83,7 +83,7 @@ export const projects: Project[] = [
   {
     "type": "Tool",
     "title": "css2js",
-    "body": "A tool to transform CSS written using JS object notation or JSX props.",
+    "body": "Transforms CSS between various different syntaxes like vanilla CSS, JS objects and JSX props. I enjoyed collaborating with lots of new people in this open-source project!",
     "date": "2020-01-10",
     "href": "https://css2js.dotenv.dev/",
     "featured": true
@@ -123,7 +123,7 @@ export const projects: Project[] = [
   {
     "type": "App",
     "title": "Rescue Robot Operator",
-    "body": null,
+    "body": "We built a remote-controlled robot with wheels, some servos and a camera. It is operated through a web interface.",
     "date": "2017-10-27",
     "href": "https://github.com/nimobeeren/rod-operator",
     "featured": false
@@ -139,7 +139,7 @@ export const projects: Project[] = [
   {
     "type": "Website",
     "title": "TU/e Study Guide",
-    "body": null,
+    "body": "A new website containing information about study programs at TU/e. Old tech alert!",
     "date": "2017-04-08",
     "href": "https://github.com/nimobeeren/2io80",
     "featured": false
