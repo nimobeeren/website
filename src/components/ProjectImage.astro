@@ -1,0 +1,18 @@
+---
+export interface Props {
+  image?: string;
+  imageAlt?: string;
+  title: string;
+  url: string;
+}
+
+const { image, imageAlt, title, url } = Astro.props;
+
+let src, alt;
+if (image) {
+  src = image;
+  alt = imageAlt || `Screenshot of the ${title} interface`;
+}
+---
+
+{src ? <img src={src} alt={alt} width="320" height="160" /> : <div class="h-40 bg-rose-300" />}

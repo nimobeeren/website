@@ -4,15 +4,15 @@ export interface Props {
   title: string;
   body: string;
   date: string;
-  href: string;
+  url: string;
 }
 
-const { type, title, body, date, href } = Astro.props;
+const { type, title, body, date, url } = Astro.props;
 ---
 
 <li class="w-full max-w-xs overflow-hidden rounded-2xl bg-white drop-shadow-xl">
   <article>
-    <a href={href}>
+    <a href={url}>
       <slot />
       <div class="flex h-96 flex-col justify-between p-8">
         <div>
