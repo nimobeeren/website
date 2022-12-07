@@ -2,7 +2,7 @@
 import Card from "@components/Card.astro";
 import ProjectImage from "@components/ProjectImage.astro";
 import Layout from "@layouts/Layout.astro";
-import { projects } from "../data/projects";
+import { projects, ProjectType } from "../data/projects";
 
 const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
 ---
@@ -14,7 +14,7 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
       {
         sortedProjects.map((project) => (
           <Card
-            type={project.type}
+            type={ProjectType[project.type]}
             title={project.title}
             body={project.body}
             date={project.date}
@@ -23,8 +23,8 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
             <ProjectImage
               image={project.image}
               imageAlt={project.imageAlt}
+              type={project.type}
               title={project.title}
-              url={project.url}
             />
           </Card>
         ))

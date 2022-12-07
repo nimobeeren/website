@@ -1,18 +1,53 @@
 ---
+import { ProjectType } from "src/data/projects";
+
 export interface Props {
   image?: string;
   imageAlt?: string;
+  type: ProjectType;
   title: string;
-  url: string;
 }
 
-const { image, imageAlt, title, url } = Astro.props;
+const { image, imageAlt, type, title } = Astro.props;
 
 let src, alt;
 if (image) {
   src = image;
   alt = imageAlt || `Screenshot of the ${title} interface`;
 }
+
+let emoji;
+switch (type) {
+  case ProjectType.Thesis | ProjectType.Paper:
+    emoji = "📝";
+    break;
+  case ProjectType.Tool:
+    emoji = "🔨";
+    break;
+  case ProjectType.Visualization:
+    emoji = "📊";
+    break;
+  case ProjectType.Simulation:
+    emoji = "⚙️";
+    break;
+  case ProjectType.Game:
+    emoji = "🎮️";
+    break;
+  case ProjectType.App:
+    emoji = "🚀";
+    break;
+  case ProjectType.Website:
+    emoji = "🌐";
+    break;
+}
 ---
 
-{src ? <img src={src} alt={alt} width="320" height="160" /> : <div class="h-40 bg-rose-300" />}
+{
+  src ? (
+    <img src={src} alt={alt} width="320" height="160" />
+  ) : (
+    <div class="flex h-40 items-center justify-center bg-rose-300 text-6xl leading-none">
+      {emoji}
+    </div>
+  )
+}
