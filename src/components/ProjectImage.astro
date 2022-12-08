@@ -16,31 +16,39 @@ if (image) {
   alt = imageAlt || `Screenshot of the ${title} interface`;
 }
 
-let emoji;
+let emoji, emojiAlt;
 switch (type) {
   case ProjectType.Thesis | ProjectType.Paper:
     emoji = "📝";
+    emojiAlt = "paper";
     break;
   case ProjectType.Tool:
     emoji = "🔨";
+    emojiAlt = "hammer";
     break;
   case ProjectType.Visualization:
     emoji = "📊";
+    emojiAlt = "chart";
     break;
   case ProjectType.Simulation:
     emoji = "⚙️";
+    emojiAlt = "gear";
     break;
   case ProjectType.Game:
     emoji = "🎮️";
+    emojiAlt = "game controller";
     break;
   case ProjectType.App:
     emoji = "🚀";
+    emojiAlt = "rocket";
     break;
   case ProjectType.Website:
     emoji = "🌐";
+    emojiAlt = "globe";
     break;
   default:
     emoji = "❓️";
+    emojiAlt = "question mark";
     break;
 }
 ---
@@ -50,7 +58,7 @@ switch (type) {
     <img src={src} alt={alt} width="320" height="160" />
   ) : (
     <div class="flex h-40 items-center justify-center bg-rose-300 text-6xl leading-none">
-      {emoji}
+      <span aria-label={emojiAlt}>{emoji}</span>
     </div>
   )
 }

@@ -6,10 +6,10 @@ export enum ProjectType {
   Simulation,
   Game,
   App,
-  Website
+  Website,
 }
 
-export type Project ={
+export type Project = {
   image?: string;
   imageAlt?: string;
   type: ProjectType;
@@ -22,9 +22,9 @@ export type Project ={
 
 export const projects: Project[] = [
   {
-    image: "/projects/thesis.webp",
+    image: "/projects/thesis.jpg",
     imageAlt:
-      "Master thesis title page listing Eindhoven University of Technology, Department of Mathematics and Computer Science, Databases Research Group",
+      "Nimo Beeren and George Fletcher posing at Nimo's graduation ceremony. Nimo is holding his degree.",
     type: ProjectType.Thesis,
     title: "Property Graph Schemas",
     body: "In my master's thesis, I formulated a practical and comprehensive schema language for graph databases, which I applied to Neo4j and others.",
@@ -41,6 +41,8 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    image: "/projects/webtex.png",
+    imageAlt: "WebTeX",
     type: ProjectType.Tool,
     title: "WebTeX",
     body: "Frustrated with LaTeX, I developed a tool for scientific and technical writing based on Markdown. It supports math, citations, and cross-references.",
@@ -49,6 +51,8 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    image: "/projects/vr-search.png",
+    imageAlt: "The left half shows a white room with letters scattered over the walls. The right half shows the same room, but the view is obstructed so that only a circular area in the center is visible.",
     type: ProjectType.Simulation,
     title: "VR Search Experiment",
     body: "We developed and conducted a VR experiment to research how people search for objects in a room.",
@@ -56,6 +60,8 @@ export const projects: Project[] = [
     url: "http://2imv25.vercel.app/",
   },
   {
+    image: "/projects/dm-guessr.png",
+    imageAlt: "On the left, a photo of a building and a car. On the right, a map with a marker on it.",
     type: ProjectType.Game,
     title: "DM-Guessr",
     body: "A game I made to play with the photography association, where you are challenged to guess where our member's photos were taken. Try to beat our high score of 123718!",
@@ -64,6 +70,8 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    image: "/projects/birdvis.png",
+    imageAlt: "An interface containing controls to change time and bird species, a map showing temperature anomaly and a map showing bird frequency.",
     type: ProjectType.Visualization,
     title: "Bird Migration",
     body: "We show how temperature is related to the migration pattern of birds in Europe. As global temperatures rise, birds start their breeding season earlier.",
@@ -71,6 +79,8 @@ export const projects: Project[] = [
     url: "https://github.com/nimobeeren/2IMV20/tree/main/InfoVis",
   },
   {
+    image: "/projects/algo-vis.png",
+    imageAlt: "An interface containing controls to change the algorithm, number of machines and jobs, a visualization of the distribution of jobs over machines, and a resulting makespan.",
     type: ProjectType.Visualization,
     title: "Load Balancing Algorithms",
     body: "This was a fun challenge to implement some algorithms using functional programming patterns in Reason.",
@@ -86,6 +96,8 @@ export const projects: Project[] = [
     url: "https://github.com/nimobeeren/spotify-migrate",
   },
   {
+    image: "/projects/scrim-valorant.png",
+    imageAlt: "An interface with heading ScrimVALORANT.com. On the left, filters for region, level, maps and post age are shown. In the middle is a list of posts from teams who want to play a scrim match.",
     type: ProjectType.App,
     title: "Valorant Scrim Finder",
     body: "I repurposed my original CS:GO Scrim Finder for the game Valorant.",
@@ -93,6 +105,8 @@ export const projects: Project[] = [
     url: "https://github.com/nimobeeren/scrim-valorant",
   },
   {
+    image: "/projects/css2js.png",
+    imageAlt: "An interface containing vanilla CSS on the left, and JS object style CSS on the right. A dropdown allows changing the CSS style.",
     type: ProjectType.Tool,
     title: "css2js",
     body: "Transforms CSS between various different syntaxes like vanilla CSS, JS objects and JSX props. I enjoyed collaborating with lots of new people in this open-source project!",
@@ -108,6 +122,8 @@ export const projects: Project[] = [
     url: "https://github.com/nimobeeren/musicdl",
   },
   {
+    image: "/projects/drone.png",
+    imageAlt: "A 3D computer simulation of a person following a drone. Some debugging aids are visible.",
     type: ProjectType.Simulation,
     title: "Autonomous Guiding Drone",
     body: "We used computer vision techniques on a virtual camera to simulate a drone which guides people to their destinations.",
@@ -131,18 +147,22 @@ export const projects: Project[] = [
   {
     type: ProjectType.App,
     title: "Rescue Robot Operator",
-    body: "We built a remote-controlled robot with wheels, some servos and a camera. It is operated through a web interface.",
+    body: "We built a remote-controlled robot with wheels, some servos and a camera. It is operated through a web interface with gamepad support.",
     date: "2017-10-27",
     url: "https://github.com/nimobeeren/rod-operator",
   },
   {
+    image: "/projects/thermostat.png",
+    imageAlt: "Person holding a phone showing a thermostat app.",
     type: ProjectType.App,
     title: "Thermostat",
-    body: null,
+    body: "A web interface for a thermostat which supports a weekly schedule.",
     date: "2017-08-07",
     url: "https://github.com/nimobeeren/2id40",
   },
   {
+    image: "/projects/study-guide.png",
+    imageAlt: "The hero section of a study guide website.",
     type: ProjectType.Website,
     title: "TU/e Study Guide",
     body: "A new website containing information about study programs at TU/e. Old tech alert!",
@@ -150,9 +170,11 @@ export const projects: Project[] = [
     url: "https://github.com/nimobeeren/2io80",
   },
   {
+    image: "/projects/twitch-stats.png",
+    imageAlt: "Website with heading Twitch Stats, a channel picker and a table of common words.",
     type: ProjectType.Visualization,
     title: "Twitch Stats",
-    body: "One of my first adventures on the web with JavaScript. This app visualizes what's going on in Twitch chat.",
+    body: "One of my first adventures on the web with JavaScript. This app tracks what's going on in Twitch chat by listing the most common words.",
     date: "2017-01-27",
     url: "https://github.com/nimobeeren/twitch-stats",
   },
