@@ -1,10 +1,10 @@
 ---
 import Card from "@components/Card.astro";
+import ProjectImage from "@components/ProjectImage.astro";
 import meImage from "@images/me.webp";
-import thesisImage from "@images/thesis.webp";
 import Layout from "@layouts/Layout.astro";
 import { Icon } from "astro-icon";
-import { projects } from "../data/projects";
+import { projects, ProjectType } from "../data/projects";
 
 const featuredProjects = projects
   .filter((project) => project.featured)
@@ -48,13 +48,18 @@ const featuredProjects = projects
         {
           featuredProjects.map((project) => (
             <Card
-              type={project.type}
+              type={ProjectType[project.type]}
               title={project.title}
               body={project.body || ""}
               date={project.date}
-              href={project.href}
+              url={project.url}
             >
-              <img src={thesisImage} />
+              <ProjectImage
+                image={project.image}
+                imageAlt={project.imageAlt}
+                type={project.type}
+                title={project.title}
+              />
             </Card>
           ))
         }
