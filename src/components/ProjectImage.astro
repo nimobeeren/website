@@ -1,64 +1,19 @@
 ---
-import { ProjectType } from "src/data/projects";
-
 export interface Props {
   image?: string;
-  imageAlt?: string;
-  type: ProjectType;
-  title: string;
+  emoji?: string;
+  alt?: string;
 }
 
-const { image, imageAlt, type, title } = Astro.props;
-
-let src, alt;
-if (image) {
-  src = image;
-  alt = imageAlt || `Screenshot of the ${title} interface`;
-}
-
-let emoji, emojiAlt;
-switch (type) {
-  case ProjectType.Thesis | ProjectType.Paper:
-    emoji = "📝";
-    emojiAlt = "paper";
-    break;
-  case ProjectType.Tool:
-    emoji = "🔨";
-    emojiAlt = "hammer";
-    break;
-  case ProjectType.Visualization:
-    emoji = "📊";
-    emojiAlt = "chart";
-    break;
-  case ProjectType.Simulation:
-    emoji = "⚙️";
-    emojiAlt = "gear";
-    break;
-  case ProjectType.Game:
-    emoji = "🎮️";
-    emojiAlt = "game controller";
-    break;
-  case ProjectType.App:
-    emoji = "🚀";
-    emojiAlt = "rocket";
-    break;
-  case ProjectType.Website:
-    emoji = "🌐";
-    emojiAlt = "globe";
-    break;
-  default:
-    emoji = "❓️";
-    emojiAlt = "question mark";
-    break;
-}
+const { image, emoji, alt } = Astro.props;
 ---
 
 {
-  src ? (
-    <img src={src} alt={alt} width="320" height="160" />
+  image ? (
+    <img src={image} alt={alt} width="320" height="160" />
   ) : (
     <div class="flex h-40 items-center justify-center bg-rose-300 text-6xl leading-none">
-      <span aria-label={emojiAlt}>{emoji}</span>
+      <span aria-label={alt}>{emoji}</span>
     </div>
   )
 }
