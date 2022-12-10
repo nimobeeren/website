@@ -137,8 +137,8 @@ export const projects: Project[] = [
     url: "https://github.com/nimobeeren/0LAUK0",
   },
   {
-    emoji: "🤖",
-    alt: "robot",
+    emoji: "🦖",
+    alt: "dinosaur",
     type: ProjectType.Simulation,
     title: "AlphaBeast Draughts Player",
     body: "A program that plays the game of International Draughts, using the alpha-beta pruning algorithm. We had a fun competition with our class.",
