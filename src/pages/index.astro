@@ -1,7 +1,7 @@
 ---
+import { Picture } from "@astrojs/image/components";
 import Card from "@components/Card.astro";
 import ProjectImage from "@components/ProjectImage.astro";
-import meImage from "@images/me.webp";
 import Layout from "@layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import { projects, ProjectType } from "../data/projects";
@@ -25,9 +25,13 @@ const featuredProjects = projects
         </p>
       </div>
       <div>
-        <img
-          src={meImage}
+        <Picture
           class="rounded-full drop-shadow-[0_0_128px_theme(colors.sky.300)]"
+          src="/me.jpg"
+          alt="Nimo smiling at the camera"
+          sizes="384px"
+          widths={[384, 384 * 2]}
+          aspectRatio="1:1"
         />
       </div>
     </div>
@@ -105,7 +109,14 @@ const featuredProjects = projects
       <div
         class="mx-auto flex items-center gap-12 border-b-4 border-b-sky-300 bg-sky-100 py-8 px-12"
       >
-        <img src={meImage} width="192" class="rounded-full" />
+        <Picture
+          class="rounded-full"
+          src="/me.jpg"
+          alt="Nimo smiling at the camera"
+          sizes="192px"
+          widths={[192, 192 * 2]}
+          aspectRatio="1:1"
+        />
         <div class="flex flex-col items-center gap-6">
           <p class="text-3xl text-sky-700">I'm looking for new challenges!</p>
           <a
