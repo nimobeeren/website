@@ -1,16 +1,21 @@
 ---
+import { Picture } from "@astrojs/image/components";
 export interface Props {
   image?: string;
   emoji?: string;
-  alt?: string;
+  alt: string;
 }
 
 const { image, emoji, alt } = Astro.props;
+
+if (!image && !emoji) {
+  throw new Error("<ProjectImage /> must receive an image or an emoji as props");
+}
 ---
 
 {
   image ? (
-    <img src={image} alt={alt} width="320" height="160" />
+    <Picture src={image} alt={alt} sizes="320px" widths={[320, 640]} aspectRatio="2:1" />
   ) : (
     <div class="flex h-40 items-center justify-center bg-rose-300 text-6xl leading-none">
       <span aria-label={alt}>{emoji}</span>

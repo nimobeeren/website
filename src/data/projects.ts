@@ -12,7 +12,7 @@ export enum ProjectType {
 export type Project = {
   image?: string;
   emoji?: string;
-  alt?: string;
+  alt: string;
   type: ProjectType;
   title: string;
   body: string;
