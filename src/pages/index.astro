@@ -4,7 +4,7 @@ import Card from "@components/Card.astro";
 import ProjectImage from "@components/ProjectImage.astro";
 import Layout from "@layouts/Layout.astro";
 import { Icon } from "astro-icon";
-import { projects,ProjectType } from "../data/projects";
+import { projects, ProjectType } from "../data/projects";
 
 const featuredProjects = projects
   .filter((project) => project.featured)
@@ -14,10 +14,10 @@ const featuredProjects = projects
 <Layout title="Nimo Beeren">
   <main class="mx-auto max-w-screen-xl font-medium text-neutral-700">
     <div
-      class="mx-auto flex max-w-[1056px] flex-wrap-reverse items-start justify-between gap-8 gap-y-12 lg:gap-16"
+      class="mx-auto flex max-w-[1056px] flex-col-reverse items-start justify-between gap-8 gap-y-4 sm:flex-row sm:items-end md:gap-12 lg:gap-16"
     >
       <div
-        class="flex flex-wrap items-end gap-x-4 border-b-4 border-b-sky-300 md:gap-x-8 z-10"
+        class="z-10 flex flex-wrap items-end gap-x-4 border-b-4 border-b-sky-300 md:gap-x-8"
       >
         <h1
           class="inline-block font-serif text-7xl font-normal text-neutral-800 md:text-8xl"
@@ -26,18 +26,16 @@ const featuredProjects = projects
         </h1>
         <span
           class="mb-2 inline-block text-xl leading-none"
-          aria-label="pronouns"
+          aria-label="pronouns">he/him</span
         >
-          he/him
-        </span>
       </div>
-      <div class="flex grow basis-48 sm:justify-end">
+      <div class="flex grow sm:basis-48 sm:justify-end">
         <Picture
           class="rounded-full drop-shadow-[0_0_64px_theme(colors.sky.300)] md:drop-shadow-[0_0_128px_theme(colors.sky.300)]"
           src="/me.jpg"
           alt="Nimo smiling at the camera"
-          sizes="(max-width: 767px) 192px, (min-width: 768px) 384px"
-          widths={[192, 384, 768]}
+          sizes="(max-width: 639px) 96px, (min-width: 640px) and (max-width: 767px) 192px, (min-width: 768px) 384px"
+          widths={[64, 192, 384, 768]}
           aspectRatio="1:1"
         />
       </div>
