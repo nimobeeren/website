@@ -42,7 +42,7 @@ const featuredProjects = projects
     </div>
 
     <header
-      class="mx-auto mt-32 flex max-w-[624px] flex-col gap-4 text-3xl leading-normal"
+      class="mx-auto mt-32 flex max-w-[624px] flex-col gap-4 text-2xl leading-normal sm:text-3xl sm:leading-normal"
     >
       <p>Hi there! 👋</p>
       <p>
@@ -52,7 +52,9 @@ const featuredProjects = projects
     </header>
 
     <section class="mx-auto mt-32 flex flex-col items-center">
-      <h2 class="font-serif text-6xl font-normal text-neutral-800">Projects</h2>
+      <h2 class="font-serif text-5xl font-normal text-neutral-800 sm:text-6xl">
+        Projects
+      </h2>
       <ul class="mt-16 flex max-w-full flex-wrap justify-center gap-12">
         {
           featuredProjects.map((project) => (
@@ -81,9 +83,11 @@ const featuredProjects = projects
     </section>
 
     <section class="mx-auto mt-32 flex flex-col items-center">
-      <h2 class="font-serif text-6xl font-normal text-neutral-800">About me</h2>
+      <h2 class="font-serif text-5xl font-normal text-neutral-800 sm:text-6xl">
+        About me
+      </h2>
       <div
-        class="mt-16 flex max-w-[50ch] flex-col gap-4 text-2xl leading-normal"
+        class="mt-16 flex max-w-[40ch] flex-col gap-4 text-2xl leading-normal"
       >
         <p>
           During my master's on computer science & engineering at TU/e I learned
