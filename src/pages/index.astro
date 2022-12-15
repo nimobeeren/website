@@ -116,25 +116,36 @@ const featuredProjects = projects
 
     <section class="mt-32 flex justify-center">
       <div
-        class="mx-auto flex items-center gap-12 border-b-4 border-b-sky-300 bg-sky-100 py-8 px-12"
+        class="mx-auto flex flex-col items-center gap-4 rounded-2xl bg-white py-8 px-8 shadow-xl sm:flex-row sm:gap-8 md:relative md:gap-0 md:px-16 md:pl-32 lg:h-64 lg:pl-40 xl:h-80 xl:pl-48"
       >
-        <Picture
-          class="rounded-full"
-          src="/me.jpg"
-          alt="Nimo smiling at the camera"
-          sizes="192px"
-          widths={[192, 192 * 2]}
-          aspectRatio="1:1"
-        />
-        <div class="flex flex-col items-center gap-6">
-          <p class="text-3xl text-sky-700">I'm looking for new challenges!</p>
+        <div
+          class="top-8 shrink-0 md:absolute md:-left-16 lg:-left-24 xl:-left-32"
+        >
+          <Picture
+            class="rounded-full shadow-lg md:shadow-xl lg:shadow-2xl"
+            src="/me.jpg"
+            alt="Nimo smiling at the camera"
+            sizes="(max-width: 1023px) 128px, (min-width: 1024px) and (max-width: 1279px) 192px, (min-width: 1280px) 256px"
+            widths={[128, 192, 192 * 2, 256, 256 * 2]}
+            aspectRatio="1:1"
+          />
+        </div>
+        <div
+          class="flex flex-col items-center text-center text-lg sm:items-start sm:text-left sm:text-2xl lg:text-3xl xl:text-4xl"
+        >
+          <p class="text-sky-700 sm:text-sky-600">
+            I'm looking for new challenges!
+          </p>
+          <p class="text-neutral-700 lg:mt-2">Let's have a chat.</p>
           <a
-            class="flex items-center gap-4 rounded-3xl bg-sky-600 px-12 py-5 text-2xl leading-none text-white"
-            href="mailto:nimobeern@gmail.com"
-            >Send me an email<span
+            class="text-md mt-4 inline-flex items-center gap-4 rounded-2xl bg-sky-600 px-6 py-3 leading-none text-white shadow transition hover:bg-sky-700 active:bg-sky-800 sm:text-lg lg:mt-6 lg:rounded-3xl lg:px-6 lg:py-4 lg:text-xl xl:mt-8 xl:text-2xl"
+            href="mailto:nimobeeren@gmail.com"
+          >
+            <span
               aria-label="envelope"
-              class="text-3xl leading-none">✉️</span
+              class="text-2xl leading-none xl:text-3xl">✉️</span
             >
+            <span>Get in touch</span>
           </a>
         </div>
       </div>
