@@ -17,7 +17,7 @@ if (!image && !emoji) {
   image ? (
     <Picture src={image} alt={alt} sizes="320px" widths={[320, 640]} aspectRatio="2:1" />
   ) : (
-    <div class="flex h-40 items-center justify-center bg-rose-300 text-6xl leading-none">
+    <div class="flex h-40 items-center justify-center bg-rose-200 text-6xl leading-none">
       <span aria-label={alt}>{emoji}</span>
     </div>
   )
