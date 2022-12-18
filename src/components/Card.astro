@@ -14,8 +14,8 @@ const { type, title, body, date, url } = Astro.props;
   <article>
     <a href={url}>
       <slot />
-      <div class="flex h-96 flex-col justify-between p-8">
-        <div>
+      <div class="flex min-h-96 gap-4 flex-col justify-between p-8">
+        <div class="overflow-hidden text-ellipsis">
           <header>
             <p class="text-lg font-medium leading-none text-sky-700">{type}</p>
             <h1 class="mt-2 text-2xl leading-tight text-neutral-800">
@@ -26,7 +26,7 @@ const { type, title, body, date, url } = Astro.props;
             {body}
           </p>
         </div>
-        <p class="mt-4 text-lg">
+        <p class="text-lg leading-8">
           {
             new Intl.DateTimeFormat("en-US", { dateStyle: "medium" }).format(
               new Date(date)
