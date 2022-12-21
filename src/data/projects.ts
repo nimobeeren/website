@@ -57,7 +57,7 @@ export const projects: Project[] = [
     alt: "The left half shows a white room with letters scattered over the walls. The right half shows the same room, but the view is obstructed so that only a circular area in the center is visible.",
     type: ProjectType.Simulation,
     title: "VR Search Experiment",
-    body: "We developed and conducted a VR experiment to research how people search for objects in a room.",
+    body: "We developed and conducted a VR experiment to investigate how people search for objects in a room.",
     date: "2021-10-20",
     url: "http://2imv25.vercel.app/",
   },
