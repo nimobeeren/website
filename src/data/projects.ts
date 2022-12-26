@@ -72,6 +72,16 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    image: "/projects/deity.png",
+    alt: "The homepage of the DEITY Store ecommmerce website",
+    type: ProjectType.Website,
+    title: "DEITY Store",
+    body: "My team at DEITY built a headless ecommerce framework for React, which we used to create this demo store. Some of the more complex components were really fun to make!",
+    date: "2021-03-31",
+    url: "https://demo.deity.io/",
+    featured: true,
+  },
+  {
     image: "/projects/birdvis.png",
     alt: "An interface containing controls to change time and bird species, a map showing temperature anomaly and a map showing bird frequency.",
     type: ProjectType.Visualization,
@@ -88,7 +98,6 @@ export const projects: Project[] = [
     body: "This was a fun challenge to implement some algorithms using functional programming patterns in Reason.",
     date: "2020-11-02",
     url: "https://algo-vis.vercel.app/",
-    featured: true,
   },
   {
     emoji: "🎧️",
