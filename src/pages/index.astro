@@ -14,7 +14,7 @@ const featuredProjects = projects
 <Layout title="Nimo Beeren">
   <main class="mx-auto max-w-screen-xl font-medium text-neutral-700">
     <div
-      class="mx-auto flex max-w-[1056px] flex-col-reverse items-start justify-between gap-8 gap-y-4 sm:flex-row sm:items-end md:gap-12 lg:gap-16"
+      class="mx-auto flex max-w-[1056px] flex-col-reverse items-start justify-between gap-8 gap-y-4 px-6 sm:px-4 md:px-8 lg:px-0 sm:flex-row sm:items-end md:gap-12 lg:gap-16"
     >
       <div
         class="z-10 flex flex-wrap items-end gap-x-4 border-b-4 border-b-sky-300 md:gap-x-8"
@@ -35,14 +35,14 @@ const featuredProjects = projects
           src="/me.jpg"
           alt="Nimo smiling at the camera"
           sizes="(max-width: 639px) 96px, (min-width: 640px) and (max-width: 767px) 192px, (min-width: 768px) 384px"
-          widths={[64, 192, 384, 768]}
+          widths={[96, 192, 384, 768]}
           aspectRatio="1:1"
         />
       </div>
     </div>
 
     <header
-      class="mx-auto mt-32 flex max-w-[624px] flex-col gap-4 text-2xl leading-normal sm:text-3xl sm:leading-normal"
+      class="mx-auto mt-32 flex max-w-[624px] flex-col gap-4 px-6 sm:px-4 md:px-8 lg:px-0 text-2xl leading-normal sm:text-3xl sm:leading-normal"
     >
       <p>Hi there! 👋</p>
       <p>
@@ -57,7 +57,9 @@ const featuredProjects = projects
       >
         Projects
       </h2>
-      <ul class="mt-12 sm:mt-16 flex max-w-full flex-wrap justify-center gap-12">
+      <ul
+        class="mt-12 flex max-w-full flex-wrap justify-center gap-12 sm:mt-16"
+      >
         {
           featuredProjects.map((project) => (
             <Card
@@ -77,7 +79,7 @@ const featuredProjects = projects
         }
       </ul>
       <a
-        class="mt-12 sm:mt-16 flex items-center justify-center gap-2 text-2xl sm:text-3xl leading-none text-sky-600 drop-shadow-sm"
+        class="mt-12 flex items-center justify-center gap-2 text-2xl leading-none text-sky-600 drop-shadow-sm sm:mt-16 sm:text-3xl"
         href="/projects"
         ><div>See more</div>
         <Icon pack="heroicons-solid" name="arrow-right" size={30} />
@@ -128,7 +130,7 @@ const featuredProjects = projects
         About me
       </h2>
       <div
-        class="mt-12 sm:mt-16 flex max-w-[40ch] flex-col gap-4 text-xl leading-normal sm:text-2xl"
+        class="mt-12 flex max-w-[40ch] flex-col gap-4 text-xl leading-normal sm:mt-16 sm:text-2xl"
       >
         <p>
           During my master's on computer science & engineering at TU/e I learned
@@ -148,7 +150,7 @@ const featuredProjects = projects
         </p>
       </div>
       <a
-        class="mt-12 sm:mt-16 flex items-center justify-center gap-2 text-2xl sm:text-3xl leading-none text-sky-600 drop-shadow-sm"
+        class="mt-12 flex items-center justify-center gap-2 text-2xl leading-none text-sky-600 drop-shadow-sm sm:mt-16 sm:text-3xl"
         href="/about"
         ><div>Read more</div>
         <Icon pack="heroicons-solid" name="arrow-right" size={30} />
