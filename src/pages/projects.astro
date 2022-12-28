@@ -8,14 +8,16 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
 ---
 
 <Layout title="Nimo's Projects">
-  <main class="mx-auto max-w-[1424px] font-medium text-neutral-700 md:max-lg:px-2">
+  <main
+    class="mx-auto max-w-[1424px] font-medium text-neutral-700 md:max-lg:px-2"
+  >
     <h1
       class="mx-auto text-center font-serif text-6xl text-neutral-800 drop-shadow sm:text-7xl md:text-left"
     >
       Projects
     </h1>
     <ul
-      class="mt-12 flex flex-col items-center gap-12 md:flex-row md:flex-wrap md:items-stretch"
+      class="mt-12 flex flex-col items-center gap-12 sm:mt-16 md:mt-20 md:flex-row md:flex-wrap md:items-stretch"
     >
       {
         sortedProjects.map((project) => (
