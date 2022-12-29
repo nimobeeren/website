@@ -25,52 +25,63 @@ const currentYear = new Date().getFullYear();
   </head>
   <body>
     <nav class="bg-white px-6 drop-shadow-md sm:px-8 lg:px-24">
-      <div class="mx-auto flex max-w-[1424px] justify-between">
-        <a
-          class="-ml-6 px-6 py-2 font-serif text-6xl text-neutral-700 drop-shadow sm:text-7xl"
-          href="/">N</a
-        >
+      <ul class="mx-auto flex max-w-[1424px] justify-between">
+        <li>
+          <a
+            class="-ml-6 inline-block px-6 py-2 font-serif text-6xl text-neutral-700 drop-shadow sm:text-7xl"
+            href="/">N</a
+          >
+        </li>
         <div
           class="-mr-3 flex items-stretch text-lg font-medium text-neutral-600 sm:-mr-4 sm:text-xl"
         >
-          <a
-            class="flex items-center px-3 drop-shadow-sm sm:px-4"
-            href="/projects">projects</a
-          >
-          <a class="flex items-center px-3 drop-shadow-sm sm:px-4" href="/about"
-            >about</a
-          >
+          <li>
+            <a
+              class="flex h-full items-center px-3 drop-shadow-sm sm:px-4"
+              href="/projects"
+            >
+              projects
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex h-full items-center px-3 drop-shadow-sm sm:px-4"
+              href="/about"
+            >
+              about
+            </a>
+          </li>
         </div>
-      </div>
+      </ul>
     </nav>
-    <div class="bg-sky-50 px-6 py-12 sm:px-8 sm:py-16 md:py-24 lg:px-24">
-      <slot />
-    </div>
-    <footer class="bg-white py-4 px-6 drop-shadow-md sm:px-8 lg:px-24">
-      <div
-        class="mx-auto flex max-w-[1424px] flex-wrap items-center justify-between gap-x-2 gap-y-4"
-      >
-        <ul class="-ml-2 flex text-neutral-500 sm:-ml-2.5" aria-label="socials">
-          <li>
-            <a href="https://github.com/nimobeeren/"
-              ><GitHubIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/nimobeeren/"
-              ><TwitterIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
-            </a>
-          </li>
-          <li>
-            <a href="https://instagram.com/nimobeeren/"
-              ><InstagramIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
-            </a>
-          </li>
-        </ul>
-        <div class="text-sm font-medium text-neutral-600 sm:text-base">
-          © {currentYear} Nimo Beeren
-        </div>
-      </div>
-    </footer>
   </body>
+  <div class="bg-sky-50 px-6 py-12 sm:px-8 sm:py-16 md:py-24 lg:px-24">
+    <slot />
+  </div>
+  <footer class="bg-white py-4 px-6 drop-shadow-md sm:px-8 lg:px-24">
+    <div
+      class="mx-auto flex max-w-[1424px] flex-wrap items-center justify-between gap-x-2 gap-y-4"
+    >
+      <ul class="-ml-2 flex text-neutral-500 sm:-ml-2.5" aria-label="socials">
+        <li>
+          <a href="https://github.com/nimobeeren/"
+            ><GitHubIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/nimobeeren/"
+            ><TwitterIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/nimobeeren/"
+            ><InstagramIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
+          </a>
+        </li>
+      </ul>
+      <div class="text-sm font-medium text-neutral-600 sm:text-base">
+        © {currentYear} Nimo Beeren
+      </div>
+    </div>
+  </footer>
 </html>
