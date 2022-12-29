@@ -24,31 +24,33 @@ const currentYear = new Date().getFullYear();
     <title>{title}</title>
   </head>
   <body>
-    <nav class="flex justify-between bg-white pr-3 drop-shadow-md md:pl-3">
-      <a
-        class="px-6 py-2 font-serif text-6xl text-neutral-700 drop-shadow sm:text-7xl"
-        href="/">N</a
-      >
-      <div
-        class="flex items-stretch text-lg font-medium text-neutral-600 sm:text-xl"
-      >
+    <nav class="bg-white px-6 drop-shadow-md sm:px-8 lg:px-24">
+      <div class="mx-auto flex max-w-[1424px] justify-between">
         <a
-          class="flex items-center px-3 drop-shadow-sm sm:px-4"
-          href="/projects">projects</a
+          class="-ml-6 px-6 py-2 font-serif text-6xl text-neutral-700 drop-shadow sm:text-7xl"
+          href="/">N</a
         >
-        <a class="flex items-center px-3 drop-shadow-sm sm:px-4" href="/about"
-          >about</a
+        <div
+          class="-mr-3 flex items-stretch text-lg font-medium text-neutral-600 sm:-mr-4 sm:text-xl"
         >
+          <a
+            class="flex items-center px-3 drop-shadow-sm sm:px-4"
+            href="/projects">projects</a
+          >
+          <a class="flex items-center px-3 drop-shadow-sm sm:px-4" href="/about"
+            >about</a
+          >
+        </div>
       </div>
     </nav>
     <div class="bg-sky-50 px-6 py-12 sm:px-8 sm:py-16 md:py-24 lg:px-24">
       <slot />
     </div>
-    <footer class="bg-white py-4 px-6 drop-shadow-md sm:px-8">
+    <footer class="bg-white py-4 px-6 drop-shadow-md sm:px-8 lg:px-24">
       <div
-        class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-x-2 gap-y-4"
+        class="mx-auto flex max-w-[1424px] flex-wrap items-center justify-between gap-x-2 gap-y-4"
       >
-        <ul class="-ml-2 flex text-neutral-500 sm:-ml-2.5" aria-label="Socials">
+        <ul class="-ml-2 flex text-neutral-500 sm:-ml-2.5" aria-label="socials">
           <li>
             <a href="https://github.com/nimobeeren/"
               ><GitHubIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
