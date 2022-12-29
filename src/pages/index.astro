@@ -3,8 +3,8 @@ import { Picture } from "@astrojs/image/components";
 import Card from "@components/Card.astro";
 import ProjectImage from "@components/ProjectImage.astro";
 import Layout from "@layouts/Layout.astro";
-import { Icon } from "astro-icon";
 import { projects, ProjectType } from "../data/projects";
+import ArrowRightIcon from "src/icons/ArrowRight.astro";
 
 const featuredProjects = projects
   .filter((project) => project.featured)
@@ -82,7 +82,7 @@ const featuredProjects = projects
         class="mt-12 flex items-center justify-center gap-2 text-2xl leading-none text-sky-600 drop-shadow-sm sm:mt-16 sm:text-3xl"
         href="/projects"
         ><div>See more</div>
-        <Icon pack="heroicons-solid" name="arrow-right" size={30} />
+        <ArrowRightIcon class="w-[30px] h-[30px] stroke-2" />
       </a>
     </section>
 
@@ -154,7 +154,7 @@ const featuredProjects = projects
         class="mt-12 flex items-center justify-center gap-2 text-2xl leading-none text-sky-600 drop-shadow-sm sm:mt-16 sm:text-3xl"
         href="/about"
         ><div>Read more</div>
-        <Icon pack="heroicons-solid" name="arrow-right" size={30} />
+        <ArrowRightIcon class="w-[30px] h-[30px] stroke-2" />
       </a>
     </section>
   </main>
