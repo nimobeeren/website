@@ -1,5 +1,8 @@
 ---
 import { Picture } from "@astrojs/image/components";
+
+const emojis = ["🎓", "🧪", "✏", "💻", "🌸", "📷", "🎹", "🔧"];
+const duration = 30; // seconds
 ---
 
 <div class="relative inline-block">
@@ -18,28 +21,30 @@ import { Picture } from "@astrojs/image/components";
     class="absolute -top-1/4 -left-1/4 -bottom-1/4 -right-1/4"
     viewBox="-75 -75 150 150"
   >
-    <text text-anchor="middle" dominant-baseline="middle">
-      🌸
-      <!-- By setting the `begin` attribute to a negative value we adjust the starting position of the emoji -->
-      <animateMotion
-        dur="10s"
-        begin="-5s"
-        repeatCount="indefinite"
-        keyTimes="0;0.5;1"
-        keyPoints="0.5;1;0.5"
-      >
-        <mpath xlink:href="#motionpath"></mpath>
-      </animateMotion>
-    </text>
+    {
+      emojis.map((emoji, index) => (
+        <text text-anchor="middle" dominant-baseline="middle">
+          {emoji}
+          {/* By setting the `begin` attribute to a negative value we adjust the starting position of the emoji */}
+          <animateMotion
+            dur={`${duration}s`}
+            begin={`-${(index / emojis.length) * duration}s`}
+            repeatCount="indefinite"
+          >
+            <mpath xlink:href="#motionpath" />
+          </animateMotion>
+        </text>
+      ))
+    }
 
     <path
       id="motionpath"
       fill="none"
       d="
         M 0 0
-        m -50 0
-        a 50 50 0 1 0 100 0
-        a 50 50 0 1 0 -100 0
+        m 0 -50
+        a 50 50 0 0 1 0 100
+        a 50 50 0 0 1 0 -100
         "
     ></path>
   </svg>
