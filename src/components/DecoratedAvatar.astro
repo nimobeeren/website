@@ -11,14 +11,36 @@ import { Picture } from "@astrojs/image/components";
     widths={[96, 192, 384, 768]}
     aspectRatio="1:1"
   />
+
   <!-- SVG is 1.5x the size of the parent element -->
   <!-- Viewbox sets (0,0) at center of the parent element, and 1 unit = 1% of the parent element -->
   <svg
     class="absolute -top-1/4 -left-1/4 -bottom-1/4 -right-1/4"
     viewBox="-75 -75 150 150"
   >
-    <text x="0" y="-50" text-anchor="middle" dominant-baseline="middle">
+    <text text-anchor="middle" dominant-baseline="middle">
       🌸
+      <!-- By setting the `begin` attribute to a negative value we adjust the starting position of the emoji -->
+      <animateMotion
+        dur="10s"
+        begin="-5s"
+        repeatCount="indefinite"
+        keyTimes="0;0.5;1"
+        keyPoints="0.5;1;0.5"
+      >
+        <mpath xlink:href="#motionpath"></mpath>
+      </animateMotion>
     </text>
+
+    <path
+      id="motionpath"
+      fill="none"
+      d="
+        M 0 0
+        m -50 0
+        a 50 50 0 1 0 100 0
+        a 50 50 0 1 0 -100 0
+        "
+    ></path>
   </svg>
 </div>
