@@ -5,6 +5,7 @@ import ProjectImage from "@components/ProjectImage.astro";
 import Layout from "@layouts/Layout.astro";
 import { projects, ProjectType } from "../data/projects";
 import ArrowRightIcon from "src/icons/ArrowRight.astro";
+import DecoratedAvatar from "@components/DecoratedAvatar.astro";
 
 const featuredProjects = projects
   .filter((project) => project.featured)
@@ -30,14 +31,7 @@ const featuredProjects = projects
         >
       </div>
       <div class="flex grow sm:basis-48 sm:justify-end">
-        <Picture
-          class="rounded-full shadow-[0_0_64px_theme(colors.sky.300)] md:shadow-[0_0_128px_theme(colors.sky.300)]"
-          src="/me.jpg"
-          alt="Nimo smiling at the camera"
-          sizes="(max-width: 639.9px) 96px, (min-width: 640px) and (max-width: 768.9px) 192px, (min-width: 768px) 384px"
-          widths={[96, 192, 384, 768]}
-          aspectRatio="1:1"
-        />
+        <DecoratedAvatar />
       </div>
     </div>
 
