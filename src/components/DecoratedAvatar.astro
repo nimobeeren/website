@@ -2,7 +2,6 @@
 import { Picture } from "@astrojs/image/components";
 
 const emojis = ["🎓", "🧪", "✏", "💻", "🌸", "📷", "🎹", "🔧"];
-const duration = 30; // seconds
 ---
 
 <div class="relative inline-block">
@@ -18,34 +17,29 @@ const duration = 30; // seconds
   <!-- SVG is 1.5x the size of the parent element -->
   <!-- Viewbox sets (0,0) at center of the parent element, and 1 unit = 1% of the parent element -->
   <svg
-    class="absolute -top-1/4 -left-1/4 -bottom-1/4 -right-1/4"
+    class="absolute -top-1/4 -left-1/4 -bottom-1/4 -right-1/4 motion-safe:animate-[spin_30s_linear_infinite]"
     viewBox="-75 -75 150 150"
   >
     {
-      emojis.map((emoji, index) => (
-        <text text-anchor="middle" dominant-baseline="middle">
-          {emoji}
-          {/* By setting the `begin` attribute to a negative value we adjust the starting position of the emoji */}
-          <animateMotion
-            dur={`${duration}s`}
-            begin={`-${(index / emojis.length) * duration}s`}
-            repeatCount="indefinite"
-          >
-            <mpath xlink:href="#motionpath" />
-          </animateMotion>
-        </text>
-      ))
-    }
+      emojis.map((emoji, index) => {
+        const angle = (index / emojis.length) * 2 * Math.PI;
 
-    <path
-      id="motionpath"
-      fill="none"
-      d="
-        M 0 0
-        m 0 -50
-        a 50 50 0 0 1 0 100
-        a 50 50 0 0 1 0 -100
-        "
-    ></path>
+        const x = Math.sin(angle) * 50;
+        const y = -Math.cos(angle) * 50;
+
+        return (
+          <text
+            class="motion-safe:animate-[spin_30s_linear_infinite_reverse]"
+            style={{ transformOrigin: `${x}px ${y}px` }}
+            x={x}
+            y={y}
+            text-anchor="middle"
+            dominant-baseline="middle"
+          >
+            {emoji}
+          </text>
+        );
+      })
+    }
   </svg>
 </div>
