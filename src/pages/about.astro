@@ -1,4 +1,5 @@
 ---
+import Link from "@components/Link.astro";
 import Layout from "@layouts/Layout.astro";
 ---
 
@@ -15,12 +16,11 @@ import Layout from "@layouts/Layout.astro";
       class="mt-10 flex flex-col items-start gap-6 leading-relaxed sm:mt-16 md:mt-20"
     >
       <p>
-        During my master's on computer science & engineering at <a
-          href="https://tue.nl/">TU/e</a
-        > I learned to do independent research, becoming fluent in the academic language.
-        This skill was very valuable to me, because it gave me access to the cutting
-        edge of technology. I could apply it in new ways, and create things nobody
-        had tried before.
+        During my master's on computer science & engineering at
+        <Link href="https://tue.nl/">TU/e</Link> I learned to do independent research,
+        becoming fluent in the academic language. This skill was very valuable to
+        me, because it gave me access to the cutting edge of technology. I could
+        apply it in new ways, and create things nobody had tried before.
       </p>
       <p>
         In the final year of my studies, I found a compelling subject in graph
@@ -29,35 +29,34 @@ import Layout from "@layouts/Layout.astro";
         reliability, usability and peformance, it can be incredibly useful to
         set some limits on this structure. But it turned out that this was not
         very well supported, even at a theoretical level. So I decided to write
-        a <a
+        a <Link
           href="https://github.com/nimobeeren/thesis/raw/main/docs/thesis.pdf"
-          >thesis</a
+          >thesis</Link
         > about it.
       </p>
       <p>
         Before my master's, I took a year to gain some professional experience
-        in web development at <a href="https://deity.io/">DEITY</a>. I learned
-        React, which let me build whatever UI we could think of. Through
+        in web development at <Link href="https://deity.io/">DEITY</Link>. I
+        learned React, which let me build whatever UI we could think of. Through
         building out our GraphQL API, I realized how graphs and schemas made
         development so much faster and more robust, especially in combination
         with TypeScript.
       </p>
       <p>
         Besides all this computer stuff, I like to go on walks and take
-        pictures, and sometimes I share the results on my <a
-          href="https://instagram.com/nimobeeren/">Instagram</a
-        >. I was also on the board of the student photography association <a
-          href="https://dekatemousa.nl/">Dekate Mousa</a
-        > for a year. Next to that, I read (mostly non-fiction) and sometimes I play
-        the piano!
+        pictures, and sometimes I share the results on my <Link
+          href="https://instagram.com/nimobeeren/">Instagram</Link
+        >. I was also on the board of the student photography association <Link
+          href="https://dekatemousa.nl/">Dekate Mousa</Link
+        > for a year. Next to that, I read things and sometimes I play the piano!
       </p>
       <p>
         I see myself as a generalist; I collect skills, interests and passions
         as I go. Whether it's theoretical computer science, machine learning or
         user experience, I'm always looking for ways to increase the quality of
-        my work and make better informed decisions. I'm excited to dive deep
-        into the next thing!
+        my work and make better informed decisions.
       </p>
+      <p>I'm excited to dive deep into the next thing!</p>
     </div>
   </main>
 </Layout>
