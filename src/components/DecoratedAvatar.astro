@@ -1,7 +1,7 @@
 ---
 import { Picture } from "@astrojs/image/components";
 
-const emojis = ["🎓", "🧪", "🎹", "💻", "🌸", "📷", "🔧", "✨"];
+const emojis = ["🎓", "🧪", "🎹", "💻", "🌸", "📷", "🔧", "📔"];
 ---
 
 <div class="relative inline-block">
@@ -17,7 +17,7 @@ const emojis = ["🎓", "🧪", "🎹", "💻", "🌸", "📷", "🔧", "✨"];
   <!-- SVG is 1.5x the size of the parent element -->
   <!-- Viewbox sets (0,0) at center of the parent element, and 1 unit = 1% of the parent element -->
   <svg
-    class="absolute -top-1/4 -left-1/4 -bottom-1/4 -right-1/4 motion-safe:animate-[spin_30s_linear_infinite]"
+    class="absolute -top-1/4 -left-1/4 -bottom-1/4 -right-1/4 motion-safe:animate-[spin_60s_linear_infinite]"
     viewBox="-75 -75 150 150"
   >
     {
@@ -29,7 +29,7 @@ const emojis = ["🎓", "🧪", "🎹", "💻", "🌸", "📷", "🔧", "✨"];
 
         return (
           <text
-            class="motion-safe:animate-[spin_30s_linear_infinite_reverse]"
+            class="motion-safe:animate-[spin_60s_linear_infinite_reverse]"
             style={{ transformOrigin: `${x}px ${y}px` }}
             x={x}
             y={y}
