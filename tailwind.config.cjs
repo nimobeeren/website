@@ -9,6 +9,9 @@ module.exports = {
         sans: ['"DM Sans"', ...defaultTheme.fontFamily.sans],
         serif: ['"DM Serif Display"', ...defaultTheme.fontFamily.serif],
       },
+      scale: {
+        102: "1.02"
+      }
     }
   },
   plugins: [
