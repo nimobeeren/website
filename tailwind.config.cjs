@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,11 +10,9 @@ module.exports = {
         serif: ['"DM Serif Display"', ...defaultTheme.fontFamily.serif],
       },
       scale: {
-        102: "1.02"
-      }
-    }
+        102: "1.02",
+      },
+    },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
