@@ -12,6 +12,12 @@ module.exports = {
       scale: {
         102: "1.02",
       },
+      boxShadow: {
+        "glow-sm": "0 0 32px 24px theme(colors.sky.100)",
+        glow: "0 0 48px 32px theme(colors.sky.100)",
+        "glow-lg": "0 0 64px theme(colors.sky.300)",
+        "glow-xl": "0 0 128px theme(colors.sky.300)",
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],
