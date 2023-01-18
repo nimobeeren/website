@@ -1,11 +1,11 @@
 ---
 import { Picture } from "@astrojs/image/components";
 import Card from "@components/Card.astro";
+import DecoratedAvatar from "@components/DecoratedAvatar.astro";
 import ProjectImage from "@components/ProjectImage.astro";
 import Layout from "@layouts/Layout.astro";
-import { projects, ProjectType } from "../data/projects";
 import ArrowRightIcon from "src/icons/ArrowRight.astro";
-import DecoratedAvatar from "@components/DecoratedAvatar.astro";
+import { projects, ProjectType } from "../data/projects";
 
 const featuredProjects = projects
   .filter((project) => project.featured)
@@ -73,14 +73,19 @@ const featuredProjects = projects
         }
       </ul>
       <a
-        class="mt-12 flex items-center justify-center gap-2 text-2xl leading-none text-sky-600 drop-shadow-sm sm:mt-16 sm:text-3xl"
+        class="mt-10 gap-2 py-1 px-2 text-2xl leading-none text-sky-600 drop-shadow-sm sm:mt-14 sm:text-3xl"
         href="/projects"
-        ><div>See more</div>
-        <ArrowRightIcon class="w-[30px] h-[30px] stroke-2" />
+      >
+        <div
+          class="relative flex items-center justify-center gap-2 py-1 after:absolute after:left-0 after:right-full after:top-0 after:bottom-0 after:block after:border-b-2 after:border-sky-300 hover:after:right-0 motion-safe:after:transition-all motion-safe:after:duration-300"
+        >
+          <span>See more</span>
+          <ArrowRightIcon class="w-6 h-6 sm:w-[30px] sm:h-[30px] stroke-2" />
+        </div>
       </a>
     </section>
 
-    <section class="mt-32 flex justify-center">
+    <section class="mt-28 flex justify-center">
       <div
         class="mx-auto flex flex-col items-center gap-4 rounded-2xl bg-white py-8 px-8 shadow-xl sm:flex-row sm:gap-8 md:relative md:gap-0 md:pr-16 md:pl-32 lg:h-64 lg:pl-40 xl:h-80 xl:pl-48"
       >
@@ -145,10 +150,15 @@ const featuredProjects = projects
         </p>
       </div>
       <a
-        class="mt-12 flex items-center justify-center gap-2 text-2xl leading-none text-sky-600 drop-shadow-sm sm:mt-16 sm:text-3xl"
+        class="mt-10 gap-2 py-1 px-2 text-2xl leading-none text-sky-600 drop-shadow-sm sm:mt-14 sm:text-3xl"
         href="/about"
-        ><div>Read more</div>
-        <ArrowRightIcon class="w-[30px] h-[30px] stroke-2" />
+      >
+        <div
+          class="relative flex items-center justify-center gap-2 py-1 after:absolute after:left-0 after:right-full after:top-0 after:bottom-0 after:block after:border-b-2 after:border-sky-300 hover:after:right-0 motion-safe:after:transition-all motion-safe:after:duration-300"
+        >
+          <span>Read more</span>
+          <ArrowRightIcon class="w-6 h-6 sm:w-[30px] sm:h-[30px] stroke-2" />
+        </div>
       </a>
     </section>
   </main>
