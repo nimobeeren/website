@@ -1,13 +1,13 @@
 ---
 import Card from "@components/Card.astro";
 import ProjectImage from "@components/ProjectImage.astro";
-import Layout from "@layouts/Layout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import { projects, ProjectType } from "../data/projects";
 
 const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
 ---
 
-<Layout title="Nimo's Projects">
+<BaseLayout title="Nimo's Projects">
   <main class="mx-auto max-w-[1424px] font-medium text-neutral-700">
     <h1
       class="mx-auto text-center font-serif text-6xl text-neutral-800 drop-shadow sm:text-7xl md:text-left"
@@ -36,4 +36,4 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
       }
     </ul>
   </main>
-</Layout>
+</BaseLayout>
