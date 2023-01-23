@@ -5,6 +5,9 @@ import image from "@astrojs/image";
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
+import mdx from "@astrojs/mdx";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), image()],
+  integrations: [tailwind(), image(), mdx()],
 });
