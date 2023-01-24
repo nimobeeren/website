@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout title={frontmatter.title || "Nimo Beeren"}>
   <article
-    class="prose prose-xl prose-neutral mx-auto max-w-[40ch] font-medium prose-headings:font-serif prose-headings:font-normal prose-headings:text-neutral-800 prose-h1:text-6xl prose-a:relative prose-a:z-0 prose-a:border-b-2 prose-a:border-sky-300 prose-a:text-sky-700 prose-a:no-underline prose-a:transition prose-a:after:absolute prose-a:after:bottom-0 prose-a:after:left-0 prose-a:after:top-0 prose-a:after:right-full prose-a:after:-z-10 prose-a:after:block prose-a:after:bg-sky-100 prose-a:after:transition-all prose-a:after:duration-300 hover:prose-a:after:right-0 prose-a:active:after:bg-sky-200 sm:prose-2xl sm:prose-h1:text-7xl lg:prose-h1:text-center"
+    class="prose prose-xl prose-neutral mx-auto max-w-[40ch] font-medium prose-headings:font-serif prose-headings:font-normal prose-headings:text-neutral-800 prose-headings:drop-shadow prose-h1:text-6xl prose-a:relative prose-a:z-0 prose-a:border-b-2 prose-a:border-sky-300 prose-a:text-sky-700 prose-a:no-underline prose-a:transition prose-a:after:absolute prose-a:after:bottom-0 prose-a:after:left-0 prose-a:after:top-0 prose-a:after:right-full prose-a:after:-z-10 prose-a:after:block prose-a:after:bg-sky-100 prose-a:after:transition-all prose-a:after:duration-300 hover:prose-a:after:right-0 prose-a:active:after:bg-sky-200 sm:prose-2xl sm:prose-h1:text-7xl lg:prose-h1:text-center"
   >
     <slot />
   </article>
