@@ -2,6 +2,7 @@
 import { Picture } from "@astrojs/image/components";
 import Card from "@components/Card.astro";
 import DecoratedAvatar from "@components/DecoratedAvatar.astro";
+import Link from "@components/Link.astro";
 import ProjectImage from "@components/ProjectImage.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ArrowRightIcon from "src/icons/ArrowRight.astro";
@@ -143,12 +144,12 @@ const featuredProjects = projects
           better things.
         </p>
         <p class="line-clamp-3">
-          During my master's on computer science & engineering at TU/e I learned
-          to do independent research, becoming fluent in the academic language.
-          I was amazed by the world that opened up to me, giving me access to
-          the cutting edge of technology. I learned to dig through the
-          literature and find the best bits, combining them to create something
-          completely new.
+          During my master's on computer science & engineering at <Link
+            href="https://tue.nl">TU/e</Link
+          > I learned to do independent research, becoming fluent in the academic
+          language. I was amazed by the world that opened up to me, giving me access
+          to the cutting edge of technology. I learned to dig through the literature
+          and find the best bits, combining them to create something completely new.
         </p>
       </div>
       <a

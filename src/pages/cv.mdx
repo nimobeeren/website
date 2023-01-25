@@ -8,6 +8,9 @@ export const address = import.meta.env.PUBLIC_ADDRESS || "REDACTED";
 export const phone = import.meta.env.PUBLIC_PHONE || "REDACTED";
 export const preUniSchool = import.meta.env.PUBLIC_PRE_UNI_SCHOOL || "REDACTED";
 
+import Link from "@components/Link.astro";
+export const components = { a: Link };
+
 # Curriculum Vitae
 
 I sit at the intersection of software engineering, data science, and creative programming. As a generalist, I'm able to choose the right tool from a wide domain, spanning from machine learning to data visualization, and from efficient algorithms to statistical methods. My work is continuously guided by the needs and wants of people, aiming to help them achieve bigger and better things.
@@ -19,7 +22,7 @@ I sit at the intersection of software engineering, data science, and creative pr
 | Birth       | 31 May 1998                                             |
 | Nationality | Dutch                                                   |
 | Address     | {address}                                               |
-| Phone       | <a href={`tel:${phone}`}>{phone}</a>                    |
+| Phone       | <Link href={`tel:${phone}`}>{phone}</Link>              |
 | Email       | [nimobeeren@gmail.com](mailto:nimobeeren@gmail.com)     |
 | GitHub      | [nimobeeren](https://github.com/nimobeeren/)            |
 | LinkedIn    | [Nimo Beeren](https://www.linkedin.com/in/nimo-beeren/) |
