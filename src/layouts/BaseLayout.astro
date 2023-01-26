@@ -25,10 +25,40 @@ const currentYear = new Date().getFullYear();
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0369a1" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="title"
+      content="Nimo Beeren | Software Engineer 🔧 Data Scientist 🧪 Creative Programmer 🌸"
+    />
+    <meta
+      name="description"
+      content="I'm a software engineer based in Eindhoven. I build tools that help people use data, code and science to create great things."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nimobeeren.com/" />
+    <meta
+      property="og:title"
+      content="Nimo Beeren | Software Engineer 🔧 Data Scientist 🧪 Creative Programmer 🌸"
+    />
+    <meta
+      property="og:description"
+      content="I'm a software engineer based in Eindhoven. I build tools that help people use data, code and science to create great things."
+    />
+    <meta property="og:image" content="/thumbnail.jpg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://nimobeeren.com/" />
+    <meta
+      property="twitter:title"
+      content="Nimo Beeren | Software Engineer 🔧 Data Scientist 🧪 Creative Programmer 🌸"
+    />
+    <meta
+      property="twitter:description"
+      content="I'm a software engineer based in Eindhoven. I build tools that help people use data, code and science to create great things. 🧪"
+    />
+    <meta property="twitter:image" content="/thumbnail.jpg" />
     <title>{title}</title>
   </head>
   <body class="flex min-h-[100vh] flex-col">
-    <nav class="bg-white px-6 drop-shadow-md sm:px-8 lg:px-24 print:hidden">
+    <nav class="bg-white px-6 drop-shadow-md print:hidden sm:px-8 lg:px-24">
       <ul class="mx-auto flex max-w-[1424px] justify-between">
         <li>
           <a
@@ -72,7 +102,9 @@ const currentYear = new Date().getFullYear();
   >
     <slot />
   </div>
-  <footer class="bg-white py-4 px-6 drop-shadow-md sm:px-8 lg:px-24 print:hidden">
+  <footer
+    class="bg-white py-4 px-6 drop-shadow-md print:hidden sm:px-8 lg:px-24"
+  >
     <div
       class="mx-auto flex max-w-[1424px] flex-wrap items-center justify-between gap-x-2 gap-y-4"
     >
