@@ -9,23 +9,37 @@ export const phone = import.meta.env.PUBLIC_PHONE || "REDACTED";
 export const preUniSchool = import.meta.env.PUBLIC_PRE_UNI_SCHOOL || "REDACTED";
 
 import Link from "@components/Link.astro";
+import NimoBeeren from "@components/NimoBeeren.astro";
+import { Picture } from "@astrojs/image/components";
 export const components = { a: Link };
 
-# Curriculum Vitae
+<header class="not-prose mb-16">
+  <div class="mb-2 flex justify-between">
+    <NimoBeeren />
+    <Picture
+      class="rounded-full shadow-glow-lg md:shadow-glow-xl"
+      src="/me.jpg"
+      alt="Nimo smiling at the camera"
+      sizes="(max-width: 767.9px) 144px, (min-width: 768px) 192px"
+      widths={[144, 144 * 2, 192, 192 * 2]}
+      aspectRatio="1:1"
+    />
+  </div>
+  <p class="font-serif text-3xl italic text-neutral-600">Curriculum vitae</p>
+</header>
 
 I sit at the intersection of software engineering, data science, and creative programming. As a generalist, I'm able to choose the right tool from a wide domain, spanning from machine learning to data visualization, and from efficient algorithms to statistical methods. My work is continuously guided by the needs and wants of people, aiming to help them achieve bigger and better things.
 
 ## Personal details
 
-|             |                                                         |
-| ----------- | ------------------------------------------------------- |
-| Birth       | 31 May 1998                                             |
-| Nationality | Dutch                                                   |
-| Address     | {address}                                               |
-| Phone       | <Link href={`tel:${phone}`}>{phone}</Link>              |
-| Email       | [nimobeeren@gmail.com](mailto:nimobeeren@gmail.com)     |
-| GitHub      | [nimobeeren](https://github.com/nimobeeren/)            |
-| LinkedIn    | [Nimo Beeren](https://www.linkedin.com/in/nimo-beeren/) |
+|             |                                                     |
+| ----------- | --------------------------------------------------- |
+| Birth       | 31 May 1998                                         |
+| Nationality | Dutch                                               |
+| Address     | {address}                                           |
+| Phone       | <Link href={`tel:${phone}`}>{phone}</Link>          |
+| Email       | [nimobeeren@gmail.com](mailto:nimobeeren@gmail.com) |
+| Website     | [nimobeeren.com](https://nimobeeren.com)            |
 
 ## Work Experience
 

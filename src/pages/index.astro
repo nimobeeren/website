@@ -3,6 +3,7 @@ import { Picture } from "@astrojs/image/components";
 import Card from "@components/Card.astro";
 import DecoratedAvatar from "@components/DecoratedAvatar.astro";
 import Link from "@components/Link.astro";
+import NimoBeeren from "@components/NimoBeeren.astro";
 import ProjectImage from "@components/ProjectImage.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ArrowRightIcon from "src/icons/ArrowRight.astro";
@@ -18,19 +19,7 @@ const featuredProjects = projects
     <div
       class="mx-auto flex max-w-[1056px] flex-col-reverse items-start justify-between gap-8 gap-y-4 px-6 sm:flex-row sm:items-end sm:px-4 md:gap-12 md:px-8 lg:gap-16 lg:px-0"
     >
-      <div
-        class="z-10 flex flex-wrap items-end gap-x-4 border-b-4 border-b-sky-300 md:gap-x-8"
-      >
-        <h1
-          class="inline-block font-serif text-7xl font-normal text-neutral-800 drop-shadow md:text-8xl"
-        >
-          Nimo<br />Beeren
-        </h1>
-        <span
-          class="mb-2 inline-block text-xl leading-none"
-          aria-label="pronouns">he/him</span
-        >
-      </div>
+      <NimoBeeren />
       <div class="flex grow sm:basis-48 sm:justify-end">
         <DecoratedAvatar />
       </div>
