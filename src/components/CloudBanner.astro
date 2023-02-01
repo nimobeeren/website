@@ -1,24 +1,32 @@
 ---
-import Cloud from "src/icons/Cloud.astro";
 ---
 
-<div class="relative z-0 min-h-[240px]" {...Astro.props}>
-  <div
-    class="absolute left-1/2 -z-10 scale-100 text-white sm:top-4 sm:scale-110 lg:top-0 lg:scale-100"
+<div class="relative z-0" {...Astro.props}>
+  <svg
+    class="absolute -z-10 h-full overflow-visible fill-white"
+    viewBox="0 0 624 196"
   >
-    <Cloud
+    <defs>
+      <svg viewBox="0 12 36 20" width="576" height="320" id="cloud">
+        <path
+          d="M31 22c-.467 0-.91.085-1.339.204.216-.526.339-1.1.339-1.704 0-2.485-2.015-4.5-4.5-4.5-1.019 0-1.947.351-2.701.921C22.093 14.096 19.544 12 16.5 12c-2.838 0-5.245 1.822-6.131 4.357C9.621 16.125 8.825 16 8 16c-4.418 0-8 3.582-8 8 0 4.419 3.582 8 8 8h23c2.762 0 5-2.238 5-5s-2.238-5-5-5z"
+        ></path>
+      </svg>
+    </defs>
+
+    <use href="#cloud" x="-506" y="-32"></use>
+    <use href="#cloud" x="-230" y="-102"></use>
+    <use href="#cloud" x="-48" y="-78"></use>
+    <use href="#cloud" x="314" y="-54"></use>
+    <use href="#cloud" x="639" y="-121"></use>
+
+    <!-- <Cloud
       class="w-[600px] absolute left-[-800px] sm:left-[-892px] top-[-30px]"
     />
     <Cloud class="w-[600px] absolute left-[-620px] top-[-80px]" />
     <Cloud class="w-[600px] absolute left-[-364px] top-[-100px]" />
     <Cloud class="w-[600px] absolute left-[-48px] top-[-62px]" />
-    <Cloud class="w-[600px] absolute left-[239px] top-[-119px]" />
-  </div>
-  <div class="relative pb-6 top-4 md:top-2">
-    <div
-      class="absolute top-0 bottom-0 -left-1/2 -right-1/2 -z-10 bg-white sm:hidden"
-    >
-    </div>
-    <slot />
-  </div>
+    <Cloud class="w-[600px] absolute left-[239px] top-[-119px]" /> -->
+  </svg>
+  <slot />
 </div>
