@@ -1,6 +1,6 @@
 <div class="relative z-0" {...Astro.props}>
   <svg
-    class="absolute -z-10 h-full overflow-visible fill-white scale-90 lg:scale-100"
+    class="absolute -z-10 h-full scale-90 overflow-visible fill-white lg:scale-100"
     viewBox="0 0 624 196"
   >
     <defs>
@@ -17,11 +17,36 @@
       </svg>
     </defs>
 
-    <use href="#cloud" x="-506" y="-32"></use>
-    <use href="#cloud" x="-230" y="-102"></use>
-    <use href="#cloud" x="-48" y="-78"></use>
-    <use href="#cloud" x="314" y="-54"></use>
-    <use href="#cloud" x="639" y="-121"></use>
+    <use
+      href="#cloud"
+      x="-506"
+      y="-42"
+      class="motion-safe:animate-float motion-safe:[animation-delay:-0ms]"
+    ></use>
+    <use
+      href="#cloud"
+      x="-230"
+      y="-112"
+      class="motion-safe:animate-float motion-safe:[animation-delay:-750ms]"
+    ></use>
+    <use
+      href="#cloud"
+      x="-48"
+      y="-88"
+      class="motion-safe:animate-float motion-safe:[animation-delay:-1500ms]"
+    ></use>
+    <use
+      href="#cloud"
+      x="314"
+      y="-64"
+      class="motion-safe:animate-float motion-safe:[animation-delay:-2250ms]"
+    ></use>
+    <use
+      href="#cloud"
+      x="639"
+      y="-131"
+      class="motion-safe:animate-float motion-safe:[animation-delay:-3000ms]"
+    ></use>
   </svg>
   <slot />
 </div>

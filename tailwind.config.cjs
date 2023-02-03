@@ -18,6 +18,25 @@ module.exports = {
         "glow-lg": "0 0 64px theme(colors.sky.300)",
         "glow-xl": "0 0 128px theme(colors.sky.300)",
       },
+      animation: {
+        float: "float 6s linear infinite",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0)",
+            "animation-timing-function": "ease-out",
+          },
+          "25%": {
+            transform: "translateY(10px)",
+            "animation-timing-function": "ease-in-out",
+          },
+          "75%": {
+            transform: "translateY(-10px)",
+            "animation-timing-function": "ease-in",
+          },
+        },
+      },
     },
   },
   plugins: [
