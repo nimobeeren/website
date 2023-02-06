@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout title={frontmatter.title || "Nimo Beeren"}>
   <article
-    class="prose prose-xl prose-neutral mx-auto max-w-[50ch] font-medium prose-headings:font-serif prose-headings:font-normal prose-headings:text-neutral-800 prose-h1:text-6xl prose-thead:hidden first:prose-td:whitespace-nowrap print:prose-lg sm:prose-2xl sm:prose-h1:text-7xl lg:prose-h1:text-center"
+    class="prose prose-xl prose-neutral mx-auto max-w-[50ch] font-medium prose-li:marker:text-neutral-600 prose-headings:font-serif prose-headings:font-normal prose-headings:text-neutral-800 prose-h1:text-6xl prose-thead:hidden first:prose-td:whitespace-nowrap print:prose-lg sm:prose-2xl sm:prose-h1:text-7xl lg:prose-h1:text-center"
   >
     <slot />
   </article>

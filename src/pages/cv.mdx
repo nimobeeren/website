@@ -1,19 +1,18 @@
 ---
 title: Nimo's CV
 layout: "@layouts/CVLayout.astro"
-draft: true
 ---
 
-export const address = import.meta.env.PUBLIC_ADDRESS || "REDACTED";
-export const phone = import.meta.env.PUBLIC_PHONE || "REDACTED";
-export const preUniSchool = import.meta.env.PUBLIC_PRE_UNI_SCHOOL || "REDACTED";
+export const address = import.meta.env.PUBLIC_ADDRESS || "Redacted";
+export const phone = import.meta.env.PUBLIC_PHONE || "Redacted";
+export const preUniSchool = import.meta.env.PUBLIC_PRE_UNI_SCHOOL || "Redacted";
 
 import Link from "@components/Link.astro";
 import NimoBeeren from "@components/NimoBeeren.astro";
 import { Picture } from "@astrojs/image/components";
 export const components = { a: Link };
 
-<header class="not-prose mb-16">
+<header class="not-prose mb-16 break-inside-avoid">
   <div class="mb-2 flex justify-between">
     <NimoBeeren />
     <Picture
@@ -30,17 +29,19 @@ export const components = { a: Link };
 
 I sit at the intersection of software engineering, data science, and creative programming. As a generalist, I'm able to choose the right tool from a wide domain, spanning from machine learning to data visualization, and from efficient algorithms to statistical methods. My work is continuously guided by the needs and wants of people, aiming to help them achieve bigger and better things.
 
+<section class="break-inside-avoid">
 ## Personal details
 
 |             |                                                     |
 | ----------- | --------------------------------------------------- |
 | Birth       | 31 May 1998                                         |
 | Nationality | Dutch                                               |
-| Address     | {address}                                           |
-| Phone       | <Link href={`tel:${phone}`}>{phone}</Link>          |
 | Email       | [nimobeeren@gmail.com](mailto:nimobeeren@gmail.com) |
 | Website     | [nimobeeren.com](https://nimobeeren.com)            |
 
+</section>
+
+<section class="break-inside-avoid">
 ## Work Experience
 
 |           |                                                                                                                                                                                                                                                                                                                     |
@@ -50,18 +51,43 @@ I sit at the intersection of software engineering, data science, and creative pr
 | 2019      | **CS:GO Player**, _4Elements Esports_. <br/> CS:GO is a team-based esport, which combines the aspects of mechanical skill, teamplay and communication. I represented 4Elements in national and international tournaments, both online and at live events.                                                           |
 | 2016      | **Recovery department**, _IKEA_. <br/> During my time at IKEA I learned how to talk to customers in a retail environment and work in a professional organization.                                                                                                                                                   |
 
+</section>
+
+<section class="break-inside-avoid">
 ## Education
 
 |           |                                                                                                                             |
 | --------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 2020–2022 | **Master's degree**, _Eindhoven University of Technology_. <br/> Computer Science & Engineering.                            |
 | 2016–2019 | **Bachelor's degree** (cum laude), _Eindhoven University of Technology_. <br/> Combined major Software Science/Web Science. |
-| 2010–2016 | **Pre-university education**, _{preUniSchool}_.                                                                             |
+| 2010–2016 | **Pre-university education** (vwo), _{preUniSchool}_.                                                                       |
 
+</section>
+
+<section class="break-inside-avoid">
+## Technology
+
+I have professional or academic experience with these technologies and enjoy using them.
+
+<ul class="list-disc">
+  <li>TypeScript/JavaScript</li>
+  <li>React</li>
+  <li>Node.js</li>
+  <li>Python</li>
+  <li>SQL/GQL</li>
+  <li>Figma</li>
+  <li>Git</li>
+</ul>
+
+</section>
+
+<section class="break-inside-avoid">
 ## Languages
 
-|             |                                         |
-| ----------- | --------------------------------------- |
-| **Dutch**   | Native speaker (_daily conversation_)   |
-| **English** | Fluent (_daily conversation_)           |
-| **German**  | Good working knowledge (_high school_ ) |
+|             |                                        |
+| ----------- | -------------------------------------- |
+| **Dutch**   | Native speaker _(daily conversation)_  |
+| **English** | Fluent _(daily conversation)_          |
+| **German**  | Good working knowledge _(high school)_ |
+
+</section>
