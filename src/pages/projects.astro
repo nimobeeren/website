@@ -83,7 +83,6 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
         selectedProjectTypes.push(option.name);
       }
     }
-    // FIXME: selectedProjectTypes is always empty on load, even though some options may be checked after a back navigation
 
     // Hide or show projects depending on their type
     const projectCards = document.querySelectorAll<HTMLElement>(".card");
@@ -102,7 +101,11 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
     }
   }
 
-  filterProjects();
+  // The pageshow event is fired when the page is opened, but also when loading
+  // the page from cache after using the browser's back navigation
+  window.addEventListener("pageshow", () => {
+    filterProjects();
+  });
 
   for (let option of projectTypeOptions) {
     option.addEventListener("change", () => {
