@@ -1,12 +1,12 @@
 export enum ProjectType {
-  Thesis,
-  Paper,
-  Tool,
-  Visualization,
-  Simulation,
-  Game,
-  App,
-  Website,
+  Thesis = "Thesis",
+  Paper = "Paper",
+  Tool = "Tool",
+  Visualization = "Visualization",
+  Simulation = "Simulation",
+  Game = "Game",
+  App = "App",
+  Website = "Website",
 }
 
 export type Project = {

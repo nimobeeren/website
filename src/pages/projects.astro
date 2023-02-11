@@ -14,6 +14,23 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
     >
       Projects
     </h1>
+    <fieldset class="mt-8">
+      <legend>Filter</legend>
+      {
+        Object.values(ProjectType)
+          .sort()
+          .map((projectType) => (
+            <label>
+              <input
+                type="checkbox"
+                name={projectType}
+                class="project-type-option"
+              />
+              {projectType}
+            </label>
+          ))
+      }
+    </fieldset>
     <ul
       class="mt-12 flex flex-col items-center gap-12 sm:mt-16 md:mt-20 md:flex-row md:flex-wrap md:items-stretch"
     >
@@ -37,3 +54,38 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
     </ul>
   </main>
 </BaseLayout>
+
+<script>
+  const projectTypeOptions = document.querySelectorAll<HTMLInputElement>(
+    "input.project-type-option"
+  );
+  for (let option of projectTypeOptions) {
+    option.setAttribute("aria-checked", String(option.checked));
+
+    option.addEventListener("change", () => {
+      option.setAttribute("aria-checked", String(option.checked));
+
+      // Get the list of project types to be shown
+      let selectedProjectTypes = [];
+      for (let option of projectTypeOptions) {
+        if (option.checked) {
+          selectedProjectTypes.push(option.name);
+        }
+      }
+
+      // Hide or show projects depending on their type
+      const projectCards = document.querySelectorAll<HTMLElement>(".card");
+      for (let projectCard of projectCards) {
+        const projectType = projectCard.querySelector(".card-type")?.innerHTML;
+        if (
+          selectedProjectTypes.length === 0 ||
+          (projectType && selectedProjectTypes.includes(projectType))
+        ) {
+          projectCard.style.display = "block";
+        } else {
+          projectCard.style.display = "none";
+        }
+      }
+    });
+  }
+</script>
