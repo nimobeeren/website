@@ -2,6 +2,7 @@
 import Card from "@components/Card.astro";
 import ProjectImage from "@components/ProjectImage.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import FilterIcon from "src/icons/Filter.astro";
 import { projects, ProjectType } from "../data/projects";
 
 const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
@@ -10,21 +11,18 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
 <BaseLayout title="Nimo's Projects">
   <main class="mx-auto max-w-[1424px] font-medium text-neutral-700">
     <h1
-      class="mx-auto text-center font-serif text-6xl text-neutral-800 drop-shadow sm:text-7xl md:text-left"
+      class="mx-auto text-center font-serif text-5xl text-neutral-800 drop-shadow md:text-left"
     >
       Projects
     </h1>
     <fieldset
-      class="mt-8 flex items-center gap-4"
+      class="mt-12 flex items-center gap-4 border-b-2 border-neutral-200 px-2 pb-8"
       aria-labelledby="filters-label"
     >
-      <span
-        id="filters-label"
-        class="text-xl font-bold uppercase tracking-wider text-neutral-600"
-        >Filters</span
-      >
+      <FilterIcon alt="Filter" class="fill-neutral-500 shrink-0" />
       <div class="flex flex-wrap gap-2">
         {
+          // TODO: hide filters behind a toggle on small screens
           Object.values(ProjectType)
             .sort()
             .map((projectType) => (
@@ -37,7 +35,7 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
                 />
                 <label
                   for={`project-type-option-${projectType}`}
-                  class="block rounded-2xl bg-sky-200 py-1 px-3 text-2xl text-sky-800 shadow transition hover:bg-sky-300 peer-checked:bg-sky-700 peer-checked:text-white peer-checked:shadow-md peer-focus:ring-4"
+                  class="block rounded-2xl bg-sky-200 py-1 px-3 text-lg text-sky-800 shadow transition hover:bg-sky-300 peer-checked:bg-sky-700 peer-checked:text-white peer-checked:shadow-md peer-focus:ring-4"
                 >
                   {projectType}
                 </label>
@@ -47,7 +45,7 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
       </div>
     </fieldset>
     <ul
-      class="mt-12 flex flex-col items-center gap-12 sm:mt-16 md:mt-20 md:flex-row md:flex-wrap md:items-stretch"
+      class="mt-12 flex flex-col items-center gap-12 sm:mt-12 md:mt-16 md:flex-row md:flex-wrap md:items-stretch"
     >
       {
         sortedProjects.map((project) => (
