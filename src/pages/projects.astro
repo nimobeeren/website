@@ -1,8 +1,8 @@
 ---
 import Card from "@components/Card.astro";
 import ProjectImage from "@components/ProjectImage.astro";
+import FilterIcon from "@icons/Filter.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import FilterIcon from "src/icons/Filter.astro";
 import { projects, ProjectType } from "../data/projects";
 
 const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
