@@ -14,22 +14,37 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
     >
       Projects
     </h1>
-    <fieldset class="mt-8">
-      <legend>Filter</legend>
-      {
-        Object.values(ProjectType)
-          .sort()
-          .map((projectType) => (
-            <label>
-              <input
-                type="checkbox"
-                name={projectType}
-                class="project-type-option"
-              />
-              {projectType}
-            </label>
-          ))
-      }
+    <fieldset
+      class="mt-8 flex items-center gap-4"
+      aria-labelledby="filters-label"
+    >
+      <span
+        id="filters-label"
+        class="text-xl font-bold uppercase tracking-wider text-neutral-600"
+        >Filters</span
+      >
+      <div class="flex flex-wrap gap-2">
+        {
+          Object.values(ProjectType)
+            .sort()
+            .map((projectType) => (
+              <div>
+                <input
+                  type="checkbox"
+                  id={`project-type-option-${projectType}`}
+                  name={projectType}
+                  class="project-type-option peer sr-only"
+                />
+                <label
+                  for={`project-type-option-${projectType}`}
+                  class="block rounded-2xl bg-sky-200 py-1 px-3 text-2xl text-sky-800 shadow transition focus-within:text-red-500 hover:bg-sky-300 peer-checked:bg-sky-700 peer-checked:text-white peer-checked:shadow-md"
+                >
+                  {projectType}
+                </label>
+              </div>
+            ))
+        }
+      </div>
     </fieldset>
     <ul
       class="mt-12 flex flex-col items-center gap-12 sm:mt-16 md:mt-20 md:flex-row md:flex-wrap md:items-stretch"
@@ -59,33 +74,39 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
   const projectTypeOptions = document.querySelectorAll<HTMLInputElement>(
     "input.project-type-option"
   );
+
+  function filterProjects() {
+    // Get the list of project types to be shown
+    let selectedProjectTypes = [];
+    for (let option of projectTypeOptions) {
+      if (option.checked) {
+        selectedProjectTypes.push(option.name);
+      }
+    }
+    // FIXME: selectedProjectTypes is always empty on load, even though some options may be checked after a back navigation
+
+    // Hide or show projects depending on their type
+    const projectCards = document.querySelectorAll<HTMLElement>(".card");
+    for (let projectCard of projectCards) {
+      const projectType = projectCard
+        .querySelector(".card-type")
+        ?.textContent?.trim();
+      if (
+        selectedProjectTypes.length === 0 ||
+        (projectType && selectedProjectTypes.includes(projectType))
+      ) {
+        projectCard.style.display = "block";
+      } else {
+        projectCard.style.display = "none";
+      }
+    }
+  }
+
+  filterProjects();
+
   for (let option of projectTypeOptions) {
-    option.setAttribute("aria-checked", String(option.checked));
-
     option.addEventListener("change", () => {
-      option.setAttribute("aria-checked", String(option.checked));
-
-      // Get the list of project types to be shown
-      let selectedProjectTypes = [];
-      for (let option of projectTypeOptions) {
-        if (option.checked) {
-          selectedProjectTypes.push(option.name);
-        }
-      }
-
-      // Hide or show projects depending on their type
-      const projectCards = document.querySelectorAll<HTMLElement>(".card");
-      for (let projectCard of projectCards) {
-        const projectType = projectCard.querySelector(".card-type")?.innerHTML;
-        if (
-          selectedProjectTypes.length === 0 ||
-          (projectType && selectedProjectTypes.includes(projectType))
-        ) {
-          projectCard.style.display = "block";
-        } else {
-          projectCard.style.display = "none";
-        }
-      }
+      filterProjects();
     });
   }
 </script>
