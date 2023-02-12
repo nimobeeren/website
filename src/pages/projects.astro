@@ -16,11 +16,19 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
       Projects
     </h1>
     <fieldset
-      class="mt-8 flex items-center gap-4 border-b-2 border-neutral-200 px-2 pb-8"
+      class="mt-4 flex flex-col items-center gap-4 border-b-2 border-neutral-200 px-2 pb-4 md:mt-12 md:flex-row md:pb-8"
       aria-labelledby="filters-label"
     >
-      <FilterIcon alt="Filter" class="fill-neutral-500 shrink-0" />
-      <div class="flex flex-wrap gap-2">
+      <input type="checkbox" id="filters" class="peer sr-only" />
+      <label
+        for="filters"
+        class="block rounded-2xl bg-neutral-300 p-2 text-neutral-500 shadow-sm peer-checked:text-sky-700 md:bg-transparent md:shadow-none md:peer-checked:text-neutral-500"
+      >
+        <FilterIcon alt="Filter" />
+      </label>
+      <div
+        class="hidden flex-wrap justify-center gap-2 peer-checked:flex md:flex md:justify-start"
+      >
         {
           // TODO: hide filters behind a toggle on small screens
           Object.values(ProjectType)
