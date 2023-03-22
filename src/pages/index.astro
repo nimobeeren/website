@@ -7,6 +7,9 @@ import Link from "@components/Link.astro";
 import NimoBeeren from "@components/NimoBeeren.astro";
 import ProjectImage from "@components/ProjectImage.astro";
 import ArrowRightIcon from "@icons/ArrowRight.astro";
+import GitHubIcon from "@icons/GitHub.astro";
+import InstagramIcon from "@icons/Instagram.astro";
+import TwitterIcon from "@icons/Twitter.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { projects, ProjectType } from "../data/projects";
 
@@ -26,6 +29,35 @@ const featuredProjects = projects
           <DecoratedAvatar />
         </div>
       </div>
+      <ul
+        class="relative z-10 mt-2 -ml-2 flex px-6 text-neutral-600 sm:px-4 md:px-8 lg:px-0"
+        aria-label="socials"
+      >
+        <li class="rounded-2xl ring-sky-300 transition focus-within:ring-4">
+          <a
+            href="https://github.com/nimobeeren/"
+            class="transition hover:text-sky-600 focus:outline-none active:text-sky-800"
+          >
+            <GitHubIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
+          </a>
+        </li>
+        <li class="rounded-2xl ring-sky-300 transition focus-within:ring-4">
+          <a
+            href="https://twitter.com/nimobeeren/"
+            class="transition hover:text-sky-600 focus:outline-none active:text-sky-800"
+          >
+            <TwitterIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
+          </a>
+        </li>
+        <li class="rounded-2xl ring-sky-300 transition focus-within:ring-4">
+          <a
+            href="https://instagram.com/nimobeeren/"
+            class="transition hover:text-sky-600 focus:outline-none active:text-sky-800"
+          >
+            <InstagramIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
+          </a>
+        </li>
+      </ul>
 
       <div class="mt-40 flex flex-col items-center">
         <CloudBanner>
