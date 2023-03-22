@@ -68,8 +68,7 @@ export const projects: Project[] = [
     title: "DM-Guessr",
     body: "A game I made to play with the photography association, where you are challenged to guess where our member's photos were taken. Try to beat our high score of 123,718!",
     date: "2021-05-11",
-    url: "https://dm-guessr.netlify.app/",
-    featured: true,
+    url: "https://dm-guessr.netlify.app/"
   },
   {
     image: "/projects/deity.png",
@@ -98,6 +97,7 @@ export const projects: Project[] = [
     body: "This was a fun challenge to implement some algorithms using functional programming patterns in Reason.",
     date: "2020-11-02",
     url: "https://algo-vis.vercel.app/",
+    featured: true,
   },
   {
     emoji: "🎧️",
