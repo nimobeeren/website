@@ -44,7 +44,7 @@ const sortedProjects = projects.sort((a, b) => Number(a.date) - Number(b.date));
                 />
                 <label
                   for={`project-type-option-${projectType}`}
-                  class="ring-sky-300 flex select-none rounded-2xl bg-sky-200 py-1 px-3 text-lg text-sky-800 shadow transition before:block before:w-0 before:opacity-0 before:transition-all before:content-['•'] hover:text-sky-600 active:bg-sky-300 peer-checked:bg-sky-700 peer-checked:text-white peer-checked:shadow-md peer-checked:before:mr-2 peer-checked:before:w-auto peer-checked:before:opacity-100 peer-focus:ring-4"
+                  class="flex select-none rounded-2xl bg-sky-200 py-1 px-3 text-lg text-sky-800 shadow ring-sky-300 transition before:block before:w-0 before:opacity-0 before:transition-all before:content-['•'] hover:text-sky-600 active:bg-sky-300 peer-checked:bg-sky-700 peer-checked:text-white peer-checked:shadow-md peer-checked:before:mr-2 peer-checked:before:w-auto peer-checked:before:opacity-100 peer-checked:active:bg-sky-800 peer-focus:ring-4"
                 >
                   {projectType}
                 </label>
