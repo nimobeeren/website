@@ -23,6 +23,16 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    emoji: "📝",
+    alt: "paper and pencil",
+    type: ProjectType.Paper,
+    title: "Property Graph Schemas",
+    body: "After completing my thesis, I compiled the main results into a short paper which was published and presented at the 26th EDBT conference.",
+    date: "2023-03-20",
+    url: "https://dx.doi.org/10.48786/edbt.2023.40",
+    featured: true,
+  },
+  {
     image: "/projects/thesis.jpg",
     alt: "Nimo Beeren and George Fletcher posing at Nimo's graduation ceremony. Nimo is holding his degree.",
     type: ProjectType.Thesis,
@@ -33,8 +43,8 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    emoji: "📝",
-    alt: "paper and pencil",
+    emoji: "🗂️",
+    alt: "file folder",
     type: ProjectType.Paper,
     title: "Visual Property Graph Schema Design",
     body: "I interviewed people from Google, Uber, LinkedIn and TigerGraph with the goal of designing a UI that helps people work with property graph schemas.",
@@ -68,7 +78,7 @@ export const projects: Project[] = [
     title: "DM-Guessr",
     body: "A game I made to play with the photography association, where you are challenged to guess where our member's photos were taken. Try to beat our high score of 123,718!",
     date: "2021-05-11",
-    url: "https://dm-guessr.netlify.app/"
+    url: "https://dm-guessr.netlify.app/",
   },
   {
     image: "/projects/deity.png",
@@ -78,7 +88,6 @@ export const projects: Project[] = [
     body: "My team at Deity built a headless ecommerce framework for React, which we used to create this demo store. Some of the more complex components were really fun to make!",
     date: "2021-03-31",
     url: "https://demo.deity.io/",
-    featured: true,
   },
   {
     image: "/projects/birdvis.png",
