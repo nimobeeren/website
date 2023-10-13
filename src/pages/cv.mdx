@@ -4,7 +4,7 @@ layout: "@layouts/CVLayout.astro"
 draft: true
 ---
 
-export const address = import.meta.env.PUBLIC_ADDRESS || "Redacted";
+export const email = import.meta.env.PUBLIC_EMAIL || "Redacted";
 export const phone = import.meta.env.PUBLIC_PHONE || "Redacted";
 export const preUniSchool = import.meta.env.PUBLIC_PRE_UNI_SCHOOL || "Redacted";
 
@@ -33,64 +33,66 @@ I sit at the intersection of software engineering, data science, and creative pr
 <section class="break-inside-avoid">
 ## Personal details
 
-|             |                                                     |
-| ----------- | --------------------------------------------------- |
-| Birth       | 31 May 1998                                         |
-| Nationality | Dutch                                               |
-| Address     | {address}                                           |
-| Phone       | <Link href={`tel:${phone}`}>{phone}</Link>          |
-| Email       | [nimobeeren@gmail.com](mailto:nimobeeren@gmail.com) |
-| Website     | [nimobeeren.com](https://nimobeeren.com)            |
+|             |                                               |
+| ----------- | --------------------------------------------- |
+| Birth       | 31 May 1998                                   |
+| Nationality | Dutch                                         |
+| Location    | Eindhoven, The Netherlands                    |
+| Email       | <Link href={`mailto:${email}`}>{email}</Link> |
+| Phone       | <Link href={`tel:${phone}`}>{phone}</Link>    |
+| Website     | [nimobeeren.com](https://nimobeeren.com)      |
 
 </section>
 
 <section class="break-inside-avoid">
-## Work Experience
+## Work experience
 
-|           |                                                                                                                                                                                                                                                                                                                                               |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2021–2022 | **PR Commissioner**, _Dekate Mousa_. <br/> As part of the board of the student photography association, I was responsible for internal and external communication, organizing weekly photography-related activities and creating content for our social media channels.                                                                       |
-| 2019–2021 | **Full-Stack Developer**, _Deity_. <br/> We built a modern JavaScript framework and component library for headless Ecommerce. My contributions included building an agnostic GraphQL API that integrates multiple Ecommerce backends, leading the effort of improving our unit and integration testing approach, and building a demo webshop. |
-| 2019      | **CS:GO Player**, _4Elements Esports_. <br/> CS:GO is a team-based esport, which combines the aspects of teamplay, communication and mechanical skill. I represented 4Elements in national and international tournaments, both online and at live events.                                                                                     |
-| 2016      | **Recovery department**, _IKEA_. <br/> During my time at IKEA I learned how to talk to customers in a retail environment and work in a professional organization.                                                                                                                                                                             |
+|                    |                                                                                                                                                                                                                                                                                                                                               |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| april 2023–current | **Software Engineer**, _iO_. <br/> I designed and implemented frontend architectures, created build/test/deploy pipelines to a serverless AWS platform and educated peers on web application testing.                                                                                                                                         |
+| 2021–2022          | **PR Commissioner**, _Dekate Mousa_. <br/> As part of the board of the student photography association, I was responsible for managing our committees, organizing weekly photography-related activities and operating our internal and external communication channels.                                                                       |
+| 2019–2021          | **Full-Stack Developer**, _Deity_. <br/> We built a modern JavaScript framework and component library for headless Ecommerce. My contributions included building an agnostic GraphQL API that integrates multiple Ecommerce backends, leading the effort of improving our unit and integration testing approach, and building a demo webshop. |
+| 2019               | **CS:GO Player**, _4Elements Esports_. <br/> CS:GO is a team-based esport, which combines the aspects of teamplay, communication and mechanical skill. I represented 4Elements in national and international tournaments, both online and at live events.                                                                                     |
+| 2016               | **Recovery department**, _IKEA_. <br/> During my time at IKEA I learned how to assist customers in a retail environment and work in a professional organization.                                                                                                                                                                              |
 
 </section>
 
 <section class="break-inside-avoid">
 ## Education
 
-|           |                                                                                                                                                                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2020–2022 | **Master's degree** (GPA 8.6), _Eindhoven University of Technology_. <br/> Computer Science & Engineering, with strong emphasis on data. My graduation project was on the foundations of database schemas, which led to a publication (see below). |
-| 2016–2019 | **Bachelor's degree** (cum laude), _Eindhoven University of Technology_. <br/> Combined major Software Science/Web Science. I paired my passion for code with my interest in humans, alongside the basics of software engineering and algorithms.  |
-| 2010–2016 | **Pre-university education** (vwo), _{preUniSchool}_.                                                                                                                                                                                              |
+|           |                                                                                                                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2020–2022 | **Master's degree** (avg 8.6/10), _Eindhoven University of Technology_. <br/> Computer Science & Engineering, with strong emphasis on data. My graduation project was on the foundations of database schemas, which led to a publication (see below). |
+| 2016–2019 | **Bachelor's degree** (cum laude), _Eindhoven University of Technology_. <br/> Combined major Software Science/Web Science. I paired my passion for code with my interest in humans, alongside the basics of software engineering and algorithms.     |
+| 2010–2016 | **Pre-university education** (vwo), _{preUniSchool}_.                                                                                                                                                                                                 |
 
 </section>
 
 <section class="break-inside-avoid">
 ## Technology
 
-I have professional or academic experience with these technologies and enjoy using them.
+I have professional and academic experience with these technologies and enjoy using them.
 
 <ul class="flex max-h-80 flex-col flex-wrap">
-  <li>Python</li>
-  <li>NumPy / pandas / SciPy</li>
-  <li>PyTorch / TensorFlow / scikit-learn</li>
-  <li>SQL / Cypher / Gremlin / SPARQL</li>
-  <li>Spark / Hadoop</li>
-  <li>Docker / Git</li>
-  <li>React / TypeScript / Reason</li>
+  <li>TypeScript</li>
   <li>Node.js</li>
-  <li>AWS / GCP</li>
-  <li>C# / C++</li>
+  <li>React</li>
+  <li>AWS / Azure</li>
+  <li>Docker</li>
+  <li>GitHub Actions / GitLab CI</li>
+  <li>Spark / Hadoop</li>
+  <li>SQL / Cypher / Gremlin / SPARQL</li>
+  <li>Python / PyTorch / pandas</li>
+  <li>C++ / C#</li>
 </ul>
 
 </section>
 
 <section class="break-inside-avoid">
-## Publications
+## Public work
 
-- Beeren, N., & Fletcher, G. (2023, March 20). A Formal Design Framework for Practical Property Graph Schema Languages. In _Proceedings of the 26th International Conference on Extending Database Technology (EDBT)_.
+- **Conference talk** (October 2023): Automating your Developer Workflow with Playwright's UI Mode, _Frontmania_.
+- **Scientific publication** (March 2023): Beeren, Nimo; Fletcher, George. A Formal Design Framework for Practical Property Graph Schema Languages. In: _Proceedings of the 26th International Conference on Extending Database Technology (EDBT)_. 2023. ([PDF](https://dx.doi.org/10.48786/edbt.2023.40))
 
 </section>
 
