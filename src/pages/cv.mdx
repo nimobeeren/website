@@ -13,11 +13,11 @@ import NimoBeeren from "@components/NimoBeeren.astro";
 import { Picture } from "@astrojs/image/components";
 export const components = { a: Link };
 
-<header class="not-prose mb-16 break-inside-avoid">
+<header class="not-prose break-inside-avoid">
   <div class="mb-2 flex justify-between">
     <NimoBeeren />
     <Picture
-      class="rounded-full shadow-glow-lg md:shadow-glow-xl"
+      class="rounded-full shadow-glow-lg print:shadow-none md:shadow-glow-xl md:print:shadow-none"
       src="/me.jpg"
       alt="Nimo smiling at the camera"
       sizes="(max-width: 767.9px) 144px, (min-width: 768px) 192px"
