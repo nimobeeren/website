@@ -10,6 +10,9 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "volta": {
+    "node": "16.20.2"
+  },
   "dependencies": {
     "@astrojs/image": "^0.12.1",
     "@astrojs/mdx": "^0.12.2",
