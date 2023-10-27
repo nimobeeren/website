@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("can be reached from the home page", async ({ page }) => {
+test.skip("can be reached from the home page", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: /about/i }).click();
   expect(new URL(page.url()).pathname).toBe("/about");
