@@ -1,11 +1,12 @@
 export enum ProjectType {
-  Thesis = "Thesis",
+  App = "App",
+  Game = "Game",
   Paper = "Paper",
+  Simulation = "Simulation",
+  Talk = "Talk",
+  Thesis = "Thesis",
   Tool = "Tool",
   Visualization = "Visualization",
-  Simulation = "Simulation",
-  Game = "Game",
-  App = "App",
   Website = "Website",
 }
 
@@ -23,6 +24,16 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    image: "/projects/frontmania.jpg",
+    alt: "Nimo Beeren presenting at Frontmania 2023",
+    type: ProjectType.Talk,
+    title: "Frontmania 2023",
+    body: "At this conference, I talked about using E2E tests to improve your workflow as a developer. I had a great time!",
+    date: "2023-10-12",
+    url: "https://www.youtube.com/watch?v=-mNp_wV-Ok8",
+    featured: true
+  },
+  {
     emoji: "📝",
     alt: "paper and pencil",
     type: ProjectType.Paper,
@@ -30,7 +41,7 @@ export const projects: Project[] = [
     body: "After completing my thesis, I compiled the main results into a short paper which was published and presented at the 26th EDBT conference.",
     date: "2023-03-20",
     url: "https://dx.doi.org/10.48786/edbt.2023.40",
-    featured: true,
+    featured: false,
   },
   {
     image: "/projects/thesis.jpg",
@@ -85,7 +96,7 @@ export const projects: Project[] = [
     alt: "The homepage of the Deity Store ecommmerce website",
     type: ProjectType.Website,
     title: "Deity Store",
-    body: "My team at Deity built a headless ecommerce framework for React, which we used to create this demo store. Some of the more complex components were really fun to make!",
+    body: "Me and my team at Deity built a headless ecommerce framework for React, which we used to create this demo store. Some of the more complex components were really fun to make!",
     date: "2021-03-31",
     url: "https://demo.deity.io/",
   },
