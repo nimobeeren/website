@@ -1,8 +1,9 @@
 import { expect, test } from "@playwright/test";
 
-test.skip("can be reached from the home page", async ({ page }) => {
+test("can be reached from the home page", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: /about/i }).click();
+  const navigation = page.getByRole("navigation");
+  await navigation.getByRole("link", { name: /about/i }).click();
   expect(new URL(page.url()).pathname).toBe("/about");
 });
 
