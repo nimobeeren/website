@@ -1,0 +1,236 @@
+---
+title: Incrementally Migrating to LangChain
+layout: "@layouts/ArticleLayout.astro"
+publishDate: "2024-05-19"
+---
+
+import Link from "@components/Link.astro";
+export const components = { a: Link };
+
+Migrating to LangChain has a number of benefits:
+
+- Easy to swap out components like LLM, document retriever etc. for something else
+- Easy integration with observability tools
+- No need to define common datastructures like `Document`, `Message` etc.
+- Encourages modular architecture
+
+But if you have an existing LLM application, you probably won't be able to replace it all with LangChain's pre-built components. You might have custom logic, dependencies or simply don't want to risk changing something in fear of degrading performance. And migrating your whole application at once can be a big time investment.
+
+When faced with this problem, my team and I came up with a migration strategy that let us migrate components to LangChain one-by-one, without changing their underlying behavior or rewriting large parts of our code. In order of preference, this is what we came up with:
+
+1. If there exists a LangChain integration that we can use as a drop-in replacement for our component, do it.
+2. If the component is very simple, refactor it to conform to one of LangChain's base interfaces.
+3. If the component is more complex, wrap it in a new component that conforms to one of LangChain's base interfaces.
+
+The key is that we don't force ourselves to use pre-built LangChain integrations that aren't a perfect fit for us. Instead, we just ensure that each component conforms to one of the interfaces which these pre-built integrations are built on. This allows our own components to slot in seamlessly with the rest of the LangChain framework.
+
+Let's take a look at how we appplied this to our RAG application.
+
+### Migrating the Retriever
+
+At its core, a retriever a function that takes a user query and returns a list of relevant documents. But in practice, you might also be rewriting/decomposing the query, using multiple search backends or reranking the results. In our case, there wasn't a ready-to-use integration that could replace all of our code, and we didn't want to do a big refactor.
+
+Instead, we built a new class which conforms to the `BaseRetriever` interface. This is actually what all LangChain retrievers do too. All you have to do is implement the `_get_relevant_documents` method, which takes in a query and returns a list of documents:
+
+```python
+from typing import List
+from langchain.schema import BaseRetriever, Document
+
+# As an example, this might be how you used to retrieve documents for a query
+def old_get_docs(query: str):
+		return [
+				{"title": "All about bananas", "text": "Bananas are cool!"},
+				{"title": "The Berry Book", "text": "Blueberries rock."},
+		]
+
+class MyRetriever(BaseRetriever):
+		def _get_relevant_documents(self, query: str) -> List[Document]:
+				# Get your documents as you normally would
+				old_docs = old_get_docs(query)
+				# Map the resulting documents
+				return [self.map_document(doc) for doc in old_docs]
+				
+		def map_document(self, old) -> Document:
+				# Map your old document datastructure to LangChain's Document
+				return Document(
+						page_content=old.text,
+						metadata={"title": old.title}
+				)
+```
+
+We can now call it using the `invoke` method, which is already implemented by `BaseRetriever`:
+
+```python
+retriever = MyRetriever()
+docs = retriever.invoke("What's long and yellow?")
+print(docs)
+# This prints:
+# [Document(
+#     page_content="Bananas are cool!",
+#     metadata={"title": "All about bananas"}
+# )]
+```
+
+We use the `invoke` method instead of the `_get_relevant_documents` method because this allows LangChain to do useful things like attach callback handlers for us.
+
+While this is a simple example, we might want to add some extra parameters too. This is easy to do, as long as you're aware that LangChain interfaces are Pydantic models. That means all constructor arguments are automatically validated at runtime. This helps to prevent passing arguments with the wrong type, but you must specify their name and type in the class definition:
+
+```python
+class MyRetriever(BaseRetriever):
+		number_of_docs: int  # add a field here
+		
+		def _get_relevant_documents(self, query: str) -> List[Document]:
+				old_docs = old_get_docs(
+						query,
+						# You can now access the field on `self`
+						number_of_docs=self.number_of_docs
+				)
+				...
+				
+				
+# In the calling code
+retriever = MyRetriever(number_of_docs=5)
+```
+
+We've added a field `number_of_docs` with type `int`, which is passed as a keyword argument to the constructor. Keep in mind that if your field is not a primitive Python type (`int`, `str`, `dict`, etc.) it must also be a Pydantic model. The Pydantic docs show how you can easily adapt your Python classes to Pydantic models, or you can just use Python's `Any` type if you want to skip validation.
+
+In case your old retriever is also a class or you want to run some initialization code like creating an API client, you can override the `__init__` method:
+
+```python
+from typing import Optional
+from elasticsearch import Elasticsearch
+
+class MyRetriever(BaseRetriever):
+		# Make the field optional, otherwise you have to provide it as
+		# a constructor argument
+		elastic: Optional[Elasticsearch]
+		
+		def __init__(self, *args, **kwargs):
+				super().__init__(*args, **kwargs)  # important!
+				self.elastic = Elasticsearch(...)
+		
+		def _get_relevant_documents(self, query: str) -> List[Document]: 
+				old_docs = self.elastic.search(query)
+				...
+```
+
+Keep in mind that everything you want to get or set on `self` must be defined as a field on the model, so in this case we have to add the `elastic` field to our model before assigning something to `self.elastic`. When overriding `__init__()`, make sure to call `super().__init__()` at the very start of your constructor, otherwise you'll get an error like `'MyRetriever' object has no attribute '__fields_set__'`.
+
+### Migrating the Prompt Template and LLM
+
+Our prompt template didn't have complex logic or dependencies, so we refactored it to implement the `BasePromptTemplate` interface directly:
+
+```python
+from typing import List
+from langchain.schema import BaseMessage, SystemMessage, HumanMessage, Document
+from langchain_core.prompts import BaseChatPromptTemplate
+
+class MyPromptTemplate(BaseChatPromptTemplate):
+    input_variables: List[str] = ["query", "docs"]  # important!
+
+    def format_messages(self, query: str, docs: List[Document]) -> List[BaseMessage]:
+        return [
+            SystemMessage(
+                "Using the given documents, answer the user's question.\n\n"
+                "Documents:\n"
+                + "\n\n".join([doc.page_content for doc in docs])
+            ),
+            HumanMessage(query)
+        ]
+
+# In the calling code    
+MyPromptTemplate().invoke({
+		"query": "Who dis?",
+		"docs": [Document(page_content="It's ya boy")]
+})
+```
+
+An advantage of this approach over something like `ChatPromptTemplate.from_messages` is that your parameters can take objects other than `str`, such as `List[Document]`. This way, all of your prompt formatting code is kept in one place. Just be sure to set the `input_variables` field with a `List[str]` type annotation, otherwise validation fails.
+
+With our LLM, we weren't doing anything special so we just used the pre-built `ChatOpenAI` integration as a drop-in replacement for the `OpenAI` client we were using before:
+
+```python
+
+# this...
+from openai import OpenAI
+
+client = OpenAI(api_key=...)
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "What is the best fruit?",
+        }
+    ],
+    model="gpt-3.5-turbo",
+)
+
+# ...becomes this
+from langchain_openai import ChatOpenAI
+from langchain.schema import HumanMessage
+
+chat = ChatOpenAI(api_key=..., model="gpt-3.5-turbo")
+chat.invoke([HumanMessage(content="What is the best fruit?")])
+```
+
+The code is very similar, but because all LangChain chat models conform to the same `BaseChatModel` interface, we can easily swap out OpenAI for any other LLM.
+
+### Putting it all together
+
+Once we have the three basic elements in place, they can be neatly wrapped into a chain using LangChain's expression language:
+
+```python
+from langchain_core.runnables import RunnablePassthrough
+
+retriever = MyRetriever()
+prompt = MyPromptTemplate()
+chat = ChatOpenAI(api_key=...)
+
+chain = (
+    {"query": RunnablePassthrough(), "docs": retriever} 
+    | prompt
+    | chat
+)
+
+output = chain.invoke("What is the best fruit?")
+print(output.content)  # Blueberries!
+```
+
+Of course, you can still use all of your components separately by calling `invoke()` on them.
+
+## Trade-offs
+
+There are a few trade-offs that come with this approach:
+
+- **Your code might not fit neatly into LangChain's boxes.** In our case, we spent a good amount of time untangling things before we could start migrating. But we found the new structure easier to understand and change.
+- **Interfaces can break with minor version releases.** According to LangChain's [Release Policy](https://python.langchain.com/v0.2/docs/versions/release_policy/), minor versions can introduce breaking changes. The more popular LangChain integrations will typically be updated quickly enough, but when you implement the base interfaces yourself you might need make some changes if you want to upgrade LangChain.
+- **You might not like the interfaces and naming.** I'm personally not a huge fan of the `page_content` field on the `Document` class, but I'm happy to stick with it for the sake of compatibility.
+
+## Conclusion
+
+Summary
+
+1. x
+2. x
+3. x
+
+If you've built a RAG chain from scratch, you probably already have functions that look similar to this. To make them LangChain-compatible, all you have to do is adapt them to use the same datastructures that the component interfaces rely on.
+
+- `BaseRetriever`
+    - `_get_relevant_documents(self, query: str) -> List[Document]`
+- `BaseChatPromptTemplate`
+    - `format_messages(self, **kwargs) -> List[BaseMessage]`
+- `Document`
+    - `page_content: str`
+    - `metadata: dict`
+- `BaseMessage`
+    - `role: "system" | "human" | "ai"`
+    - `content: str`
+
+When your code implements LangChain interfaces, it becomes trivial to swap out parts:
+
+- Compare Claude to GPT-4
+- Experiment with prompt templates from LangChain hub
+- Try any retriever integration like ElasticSearch
+
+Next to that, when you use the expression language above, you get LangSmith integration for free, or you can use any of the other observability integrations using callbacks.
