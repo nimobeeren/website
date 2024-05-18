@@ -1,0 +1,42 @@
+---
+import Link from "@components/Link.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+interface Post {
+  url: string;
+  frontmatter: {
+    title: string;
+    publishDate: string;
+  };
+}
+
+const postGetters = import.meta.glob("./*.mdx") as Record<
+  string,
+  () => Promise<Post>
+>;
+const posts = await Promise.all(
+  Object.values(postGetters).map((getPost) => getPost())
+);
+---
+
+<BaseLayout title="Blog">
+  <main class="mx-auto max-w-[1424px] font-medium text-neutral-700">
+    <h1
+      id="blog"
+      class="mx-auto text-center font-serif text-5xl text-neutral-800 drop-shadow md:text-left"
+    >
+      Blog
+    </h1>
+
+    <ul class="my-8 text-2xl">
+      {
+        posts.map((post) => (
+          <li class="flex justify-between gap-2 flex-col sm:flex-row">
+            <Link href={post.url}>{post.frontmatter.title}</Link>
+            <div class="whitespace-nowrap text-lg sm:text-2xl">{post.frontmatter.publishDate}</div>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>
