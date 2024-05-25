@@ -33,7 +33,7 @@ At its core, a [retriever](https://python.langchain.com/v0.2/docs/concepts/#retr
 from typing import List
 from langchain.schema import BaseRetriever, Document
 
-# For example, this might be how you retrieved documents for a query before
+# For example, this might be how you retrieved documents before
 def legacy_get_docs(query: str):
 	return [
 		{"title": "All About Bananas", "text": "Bananas are cool!"},
@@ -83,7 +83,7 @@ class MyRetriever(BaseRetriever):
 retriever = MyRetriever(number_of_docs=5)
 ```
 
-We've added a field `number_of_docs` with type `int`, which is passed as a keyword argument to the constructor. Keep in mind that if your field is not a primitive Python type (`int`, `str`, `dict`, etc.) it must also be a Pydantic model. The Pydantic docs show how you can easily adapt your Python classes to Pydantic models, or you can just use Python's `Any` type if you want to skip validation.
+We've added a field `number_of_docs` with type `int`, which is passed as a keyword argument to the `MyRetriever` constructor. Keep in mind that if your field is not a primitive Python type (`int`, `str`, `dict`, etc.) it must also be a Pydantic model. The Pydantic docs show how you can easily adapt your Python classes to Pydantic models, or you can just use Python's `Any` type if you want to skip validation.
 
 In case your old retriever is also a class or you want to run some initialization code like creating an API client, you can override the `__init__` method:
 
@@ -113,16 +113,19 @@ Because our retriever now uses LangChain's `Document` structure, we need to adju
 
 ```python
 from typing import List
-from langchain.schema import BaseMessage, SystemMessage, HumanMessage, Document
+from langchain.schema import (BaseMessage, SystemMessage
+                              HumanMessage, Document)
 from langchain_core.prompts import BaseChatPromptTemplate
 
 class MyPromptTemplate(BaseChatPromptTemplate):
     input_variables: List[str] = ["query", "docs"]  # important!
 
-    def format_messages(self, query: str, docs: List[Document]) -> List[BaseMessage]:
+    def format_messages(
+        self, query: str, docs: List[Document]
+    ) -> List[BaseMessage]:
         return [
             SystemMessage(
-                "Using the given documents, answer the user's question.\n\n"
+                "Using the documents, answer the user's question.\n\n"
                 "Documents:\n"
                 + "\n\n".join([doc.page_content for doc in docs])
             ),
@@ -136,7 +139,7 @@ MyPromptTemplate().invoke({
 })
 ```
 
-An advantage of this approach over something like `ChatPromptTemplate.from_messages` is that your parameters can take objects other than `str`, such as `List[Document]`. This way, all of your prompt formatting code is kept in one place. Just be sure to set the `input_variables` field with a `List[str]` type annotation, otherwise validation fails.
+An advantage of this approach over something like `ChatPromptTemplate.from_messages` is that you can take arguments with types other than `str`, such as `List[Document]`. This way, all of your prompt formatting code can be kept in one place. Just be sure to set the `input_variables` field (and use a `List[str]` type annotation), otherwise validation fails.
 
 With our LLM, we weren't doing anything special so we just used the pre-built `ChatOpenAI` integration as a drop-in replacement for the `OpenAI` client we were using before:
 
@@ -177,7 +180,7 @@ prompt = MyPromptTemplate()
 chat = ChatOpenAI(api_key=..., model="gpt-4o")
 
 chain = (
-    {"query": RunnablePassthrough(), "docs": retriever} 
+    {"query": RunnablePassthrough(), "docs": retriever}
     | prompt
     | chat
 )
@@ -190,7 +193,7 @@ Of course, you can still use all of your components separately by calling `invok
 
 ## Trade-offs
 
-There are a few trade-offs that come with this approach:
+A few things to consider before taking this approach:
 
 - **Your code might not fit neatly into LangChain's boxes.** In our case, we spent a good amount of time untangling things before we could start migrating. But we found the new structure easier to understand and change.
 - **Interfaces can break with minor version releases.** According to LangChain's [Release Policy](https://python.langchain.com/v0.2/docs/versions/release_policy/), minor versions can introduce breaking changes. The more popular LangChain integrations will typically be updated quickly enough, but when you implement the base interfaces yourself you might need make some changes if you want to upgrade LangChain.
