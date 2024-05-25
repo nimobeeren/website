@@ -27,7 +27,7 @@ Let's take a look at how this worked for our RAG application.
 
 ### Migrating the Retriever
 
-At its core, a retriever is a function that takes a query and returns a list of relevant documents. But in practice, you might also be rewriting/decomposing the query, using multiple search backends or reranking the results. In our case, there wasn't a ready-to-use integration that could do all that. Instead, we built a new class which conforms to the `BaseRetriever` interface. This is actually what all LangChain retrievers do. All you have to do is implement the `_get_relevant_documents` method, which takes in a query and returns a list of documents:
+At its core, a [retriever](https://python.langchain.com/v0.2/docs/concepts/#retrievers) is a function that takes a query and returns a list of relevant documents. But in practice, you might also be rewriting/decomposing the query, using multiple search backends or reranking the results. In our case, there wasn't a ready-to-use integration that could do all that. Instead, we built a new class which conforms to the `BaseRetriever` interface. This is actually what all LangChain retrievers do. All you have to do is implement the `_get_relevant_documents` method, which takes in a query and returns a list of documents:
 
 ```python
 from typing import List
@@ -217,12 +217,12 @@ When your components use these interfaces, it becomes trivial to swap them out:
 
 - Compare Claude to GPT-4o
 - Experiment with prompt templates from LangChain hub
-- Try any retriever integration like Elasticsearch, Cohere or BM25
+- Try any retriever integration like [Elasticsearch](https://python.langchain.com/v0.2/docs/integrations/retrievers/elasticsearch_retriever/), [Cohere](https://python.langchain.com/v0.2/docs/integrations/retrievers/cohere/) or [BM25](https://python.langchain.com/v0.2/docs/integrations/retrievers/bm25/)
 
 Next to that, when you use LCEL, observability is basically free:
 
 - Just add an API key to [integrate with LangSmith](https://docs.smith.langchain.com/)
-- Use any other analytics/eval integration like [Context](https://python.langchain.com/v0.2/docs/integrations/callbacks/context/) or [Confident](https://python.langchain.com/v0.2/docs/integrations/callbacks/confident/)
+- Use any other analytics/eval integration like [Context](https://python.langchain.com/v0.2/docs/integrations/callbacks/context/) or [Confident AI](https://python.langchain.com/v0.2/docs/integrations/callbacks/confident/)
 - Write your own code to [hook into callbacks](https://python.langchain.com/v0.2/docs/how_to/callbacks_attach/)
 
 Finally, your components have a single, clear purpose which makes your code easier to understand and change.
