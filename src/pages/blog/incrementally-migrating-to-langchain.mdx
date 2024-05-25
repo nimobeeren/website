@@ -50,8 +50,8 @@ class MyRetriever(BaseRetriever):
 	def map_document(self, old) -> Document:
 		# Map your own document object to LangChain's Document
 		return Document(
-            page_content=old.text,
-            metadata={"title": old.title}
+            page_content=old["text"],
+            metadata={"title": old["title"]}
 		)
 ```
 
@@ -145,21 +145,21 @@ With our LLM, we weren't doing anything special so we just used the pre-built `C
 from openai import OpenAI
 
 client = OpenAI(api_key=...)
-chat_completion = client.chat.completions.create(
+client.chat.completions.create(
     messages=[
         {
             "role": "user",
             "content": "What is the best fruit?",
         }
     ],
-    model="gpt-3.5-turbo",
+    model="gpt-4o",
 )
 
 # Using LangChain
 from langchain_openai import ChatOpenAI
 from langchain.schema import HumanMessage
 
-chat = ChatOpenAI(api_key=..., model="gpt-3.5-turbo")
+chat = ChatOpenAI(api_key=..., model="gpt-4o")
 chat.invoke([HumanMessage(content="What is the best fruit?")])
 ```
 
@@ -174,10 +174,10 @@ from langchain_core.runnables import RunnablePassthrough
 
 retriever = MyRetriever()
 prompt = MyPromptTemplate()
-chat = ChatOpenAI(api_key=...)
+chat = ChatOpenAI(api_key=..., model="gpt-4o")
 
 chain = (
-    {"query": RunnablePassthrough(), "docs": retriever}
+    {"query": RunnablePassthrough(), "docs": retriever} 
     | prompt
     | chat
 )
