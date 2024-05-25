@@ -14,8 +14,13 @@ const postGetters = import.meta.glob("./*.mdx") as Record<
   string,
   () => Promise<Post>
 >;
+// Get all posts
 const posts = await Promise.all(
   Object.values(postGetters).map((getPost) => getPost())
+);
+// Sort by descending publish date
+posts.sort((a, b) =>
+  a.frontmatter.publishDate < b.frontmatter.publishDate ? 1 : -1
 );
 ---
 
@@ -28,12 +33,14 @@ const posts = await Promise.all(
       Blog
     </h1>
 
-    <ul class="my-8 text-2xl">
+    <ul class="my-8 text-2xl flex flex-col gap-4">
       {
         posts.map((post) => (
-          <li class="flex justify-between gap-2 flex-col sm:flex-row">
+          <li class="flex flex-col justify-between gap-2 sm:flex-row">
             <Link href={post.url}>{post.frontmatter.title}</Link>
-            <div class="whitespace-nowrap text-lg sm:text-2xl">{post.frontmatter.publishDate}</div>
+            <div class="whitespace-nowrap text-lg sm:text-2xl">
+              {post.frontmatter.publishDate}
+            </div>
           </li>
         ))
       }
