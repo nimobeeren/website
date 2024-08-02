@@ -24,6 +24,16 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    image: "/projects/talksnap.png",
+    alt: "An interface containing a transcript with highlighted segments on the left, and summaries of the highlighted segments on the right.",
+    type: ProjectType.App,
+    title: "TalkSnap",
+    body: "Live transcribes conference talks/meetings/conversations and quickly summarizes the last talking point at the press of a button.",
+    date: "2024-08-02",
+    url: "https://talksnap.vercel.app/",
+    featured: true,
+  },
+  {
     image: "/projects/frontmania.jpg",
     alt: "Nimo Beeren presenting at Frontmania 2023",
     type: ProjectType.Talk,
@@ -31,7 +41,7 @@ export const projects: Project[] = [
     body: "At this conference, I talked about using E2E tests to improve your workflow as a developer. I had a great time!",
     date: "2023-10-12",
     url: "https://www.youtube.com/watch?v=-mNp_wV-Ok8",
-    featured: true
+    featured: true,
   },
   {
     emoji: "📝",
@@ -145,7 +155,7 @@ export const projects: Project[] = [
     body: "Transforms CSS between various different syntaxes like vanilla CSS, JS objects and JSX props. I enjoyed collaborating with lots of new people in this open-source project!",
     date: "2020-01-10",
     url: "https://css2js.dotenv.dev/",
-    featured: true,
+    featured: false,
   },
   {
     emoji: "🎵",
