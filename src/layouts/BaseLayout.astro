@@ -4,6 +4,7 @@ import "@fontsource/dm-serif-display";
 import GitHubIcon from "@icons/GitHub.astro";
 import LinkedInIcon from "@icons/LinkedIn.astro";
 import XIcon from "@icons/X.astro";
+import InstagramIcon from "@icons/Instagram.astro";
 
 export interface Props {
   title: string;
@@ -136,6 +137,14 @@ const currentYear = new Date().getFullYear();
             class="transition hover:text-sky-600 focus:outline-none active:text-sky-800"
           >
             <XIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
+          </a>
+        </li>
+        <li class="rounded-2xl ring-sky-300 transition focus-within:ring-4">
+          <a
+            href="https://instagram.com/nimobeeren/"
+            class="transition hover:text-sky-600 focus:outline-none active:text-sky-800"
+          >
+            <InstagramIcon class="w-12 h-12 p-2 sm:w-16 sm:h-16 sm:p-2.5" />
           </a>
         </li>
       </ul>
