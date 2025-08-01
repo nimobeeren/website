@@ -12,7 +12,7 @@
     "astro": "astro"
   },
   "volta": {
-    "node": "18.20.8"
+    "node": "22.18.0"
   },
   "dependencies": {
     "@astrojs/image": "^0.12.1",
