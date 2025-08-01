@@ -1,3 +1,24 @@
+import type { ImageMetadata } from "astro";
+import aiTinkerersCtfAgentImage from "../images/projects/ai-tinkerers-ctf-agent.jpg";
+import aiTinkerersVtonImage from "../images/projects/ai-tinkerers-vton.jpg";
+import algoVisImage from "../images/projects/algo-vis.png";
+import birdvisImage from "../images/projects/birdvis.png";
+import css2jsImage from "../images/projects/css2js.png";
+import ctfAgentImage from "../images/projects/ctf-agent.jpg";
+import deityImage from "../images/projects/deity.png";
+import dmGuessrImage from "../images/projects/dm-guessr.png";
+import dressmeImage from "../images/projects/dressme.jpg";
+import droneImage from "../images/projects/drone.png";
+import frontmaniaImage from "../images/projects/frontmania.jpg";
+import scrimValorantImage from "../images/projects/scrim-valorant.png";
+import studyGuideImage from "../images/projects/study-guide.png";
+import talksnapImage from "../images/projects/talksnap.png";
+import thermostatImage from "../images/projects/thermostat.png";
+import thesisImage from "../images/projects/thesis.jpg";
+import twitchStatsImage from "../images/projects/twitch-stats.png";
+import vrSearchImage from "../images/projects/vr-search.png";
+import webtexImage from "../images/projects/webtex.png";
+
 export enum ProjectType {
   App = "App",
   Game = "Game",
@@ -11,7 +32,7 @@ export enum ProjectType {
 }
 
 export type Project = {
-  image?: string;
+  image?: ImageMetadata;
   emoji?: string;
   alt: string;
   type: ProjectType;
@@ -24,7 +45,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    image: "/projects/ai-tinkerers-vton.jpg",
+    image: aiTinkerersVtonImage,
     alt: "Thumbnail for AI Tinkerers Amsterdam (July Edition) featuring a talk about Gemini Flash and Virtual Try-on by Nimo Beeren (AI Engineer at iO). The host sponsor is Mindspace.",
     type: ProjectType.Talk,
     title: "Outfit-Maxxing with Virtual Try-On",
@@ -34,7 +55,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    image: "/projects/ai-tinkerers-ctf-agent.jpg",
+    image: aiTinkerersCtfAgentImage,
     alt: "Thumbnail for AI Tinkerers and AdvancedJS Amsterdam featuring a talk about CTF-Agent: Hacking with Reasoning Models by Nimo Beeren (AI Engineer at iO). Sponsored by Xebia.",
     type: ProjectType.Talk,
     title: "Hacking with Reasoning Models",
@@ -44,7 +65,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    image: "/projects/ctf-agent.jpg",
+    image: ctfAgentImage,
     alt: `\
 Terminal output containing the following text:
     
@@ -78,7 +99,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://github.com/nimobeeren/ctf-agent",
   },
   {
-    image: "/projects/dressme.jpg",
+    image: dressmeImage,
     alt: "An interface containing a list of clothing items and a person wearing the selected items.",
     type: ProjectType.App,
     title: "dressme",
@@ -88,7 +109,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     featured: true,
   },
   {
-    image: "/projects/talksnap.png",
+    image: talksnapImage,
     alt: "An interface containing a transcript with highlighted segments on the left, and summaries of the highlighted segments on the right.",
     type: ProjectType.App,
     title: "TalkSnap",
@@ -98,7 +119,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     featured: true,
   },
   {
-    image: "/projects/frontmania.jpg",
+    image: frontmaniaImage,
     alt: "Nimo Beeren presenting at Frontmania 2023",
     type: ProjectType.Talk,
     title: "Frontmania 2023",
@@ -117,7 +138,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://dx.doi.org/10.48786/edbt.2023.40",
   },
   {
-    image: "/projects/thesis.jpg",
+    image: thesisImage,
     alt: "Nimo Beeren and George Fletcher posing at Nimo's graduation ceremony. Nimo is holding his degree.",
     type: ProjectType.Thesis,
     title: "Property Graph Schemas",
@@ -136,7 +157,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://arxiv.org/abs/2201.03643",
   },
   {
-    image: "/projects/webtex.png",
+    image: webtexImage,
     alt: "WebTeX",
     type: ProjectType.App,
     title: "WebTeX",
@@ -145,7 +166,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://webtex.vercel.app/",
   },
   {
-    image: "/projects/vr-search.png",
+    image: vrSearchImage,
     alt: "The left half shows a white room with letters scattered over the walls. The right half shows the same room, but the view is obstructed so that only a circular area in the center is visible.",
     type: ProjectType.Simulation,
     title: "VR Search Experiment",
@@ -154,7 +175,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "http://2imv25.vercel.app/",
   },
   {
-    image: "/projects/dm-guessr.png",
+    image: dmGuessrImage,
     alt: "On the left, a photo of a building and a car. On the right, a map with a marker on it.",
     type: ProjectType.Game,
     title: "DM-Guessr",
@@ -163,7 +184,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://dm-guessr.netlify.app/",
   },
   {
-    image: "/projects/deity.png",
+    image: deityImage,
     alt: "The homepage of the Deity Store ecommmerce website",
     type: ProjectType.Website,
     title: "Deity Store",
@@ -172,7 +193,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://demo.deity.io/",
   },
   {
-    image: "/projects/birdvis.png",
+    image: birdvisImage,
     alt: "An interface containing controls to change time and bird species, a map showing temperature anomaly and a map showing bird frequency.",
     type: ProjectType.Visualization,
     title: "Bird Migration",
@@ -181,7 +202,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://github.com/nimobeeren/2IMV20/tree/main/InfoVis",
   },
   {
-    image: "/projects/algo-vis.png",
+    image: algoVisImage,
     alt: "An interface containing controls to change the algorithm, number of machines and jobs, a visualization of the distribution of jobs over machines, and a resulting makespan.",
     type: ProjectType.Visualization,
     title: "Load Balancing Algorithms",
@@ -200,7 +221,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://github.com/nimobeeren/spotify-migrate",
   },
   {
-    image: "/projects/scrim-valorant.png",
+    image: scrimValorantImage,
     alt: "An interface with heading ScrimVALORANT.com. On the left, filters for region, level, maps and post age are shown. In the middle is a list of posts from teams who want to play a scrim match.",
     type: ProjectType.App,
     title: "Valorant Scrim Finder",
@@ -209,7 +230,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://github.com/nimobeeren/scrim-valorant",
   },
   {
-    image: "/projects/css2js.png",
+    image: css2jsImage,
     alt: "An interface containing vanilla CSS on the left, and JS object style CSS on the right. A dropdown allows changing the CSS style.",
     type: ProjectType.Tool,
     title: "css2js",
@@ -228,7 +249,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://github.com/nimobeeren/musicdl",
   },
   {
-    image: "/projects/drone.png",
+    image: droneImage,
     alt: "A 3D computer simulation of a person following a drone. Some debugging aids are visible.",
     type: ProjectType.Simulation,
     title: "Autonomous Guiding Drone",
@@ -264,7 +285,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://github.com/nimobeeren/rod-operator",
   },
   {
-    image: "/projects/thermostat.png",
+    image: thermostatImage,
     alt: "Person holding a phone showing a thermostat app.",
     type: ProjectType.App,
     title: "Thermostat",
@@ -273,7 +294,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://github.com/nimobeeren/2id40",
   },
   {
-    image: "/projects/study-guide.png",
+    image: studyGuideImage,
     alt: "The hero section of a study guide website.",
     type: ProjectType.Website,
     title: "TU/e Study Guide",
@@ -282,7 +303,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     url: "https://github.com/nimobeeren/2io80",
   },
   {
-    image: "/projects/twitch-stats.png",
+    image: twitchStatsImage,
     alt: "Website with heading Twitch Stats, a channel picker and a table of common words.",
     type: ProjectType.Visualization,
     title: "Twitch Stats",

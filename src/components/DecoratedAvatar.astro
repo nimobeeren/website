@@ -1,5 +1,6 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Picture } from "astro:assets";
+import meImage from "../images/me.jpg"
 
 const emojis = ["🎓", "🧪", "🎹", "💻", "🌸", "📷", "🔧", "📔"];
 ---
@@ -7,11 +8,11 @@ const emojis = ["🎓", "🧪", "🎹", "💻", "🌸", "📷", "🔧", "📔"];
 <div class="relative inline-block">
   <Picture
     class="rounded-full shadow-glow-lg md:shadow-glow-xl"
-    src="/me.jpg"
+    src={meImage}
     alt="Nimo smiling at the camera"
-    sizes="(max-width: 639.9px) 128px, (min-width: 640px) and (max-width: 768.9px) 192px, (min-width: 768px) 384px"
-    widths={[128, 128 * 2, 192, 384, 384 * 2]}
-    aspectRatio="1:1"
+    width={384}
+    height={384}
+    layout="fixed"
   />
 
   {

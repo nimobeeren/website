@@ -1,5 +1,4 @@
 ---
-import { Picture } from "@astrojs/image/components";
 import Card from "@components/Card.astro";
 import CloudBanner from "@components/CloudBanner.astro";
 import DecoratedAvatar from "@components/DecoratedAvatar.astro";
@@ -7,11 +6,13 @@ import Link from "@components/Link.astro";
 import NimoBeeren from "@components/NimoBeeren.astro";
 import ProjectImage from "@components/ProjectImage.astro";
 import ArrowRightIcon from "@icons/ArrowRight.astro";
+import BlueskyIcon from "@icons/Bluesky.astro";
 import GitHubIcon from "@icons/GitHub.astro";
 import LinkedInIcon from "@icons/LinkedIn.astro";
-import BlueskyIcon from "@icons/Bluesky.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { Picture } from "astro:assets";
 import { projects, ProjectType } from "../data/projects";
+import meImage from "../images/me.jpg";
 
 const featuredProjects = projects
   .filter((project) => project.featured)
@@ -126,12 +127,12 @@ const featuredProjects = projects
           class="top-8 shrink-0 md:absolute md:-left-16 lg:-left-24 xl:-left-32"
         >
           <Picture
-            class="rounded-full shadow-lg md:shadow-xl lg:shadow-2xl"
-            src="/me.jpg"
+            class="rounded-full shadow-lg md:shadow-xl lg:shadow-2xl w-32 h-32 lg:w-48 lg:h-48 xl:w-64 xl:h-64"
+            src={meImage}
             alt="Nimo smiling at the camera"
-            sizes="(max-width: 1023.9px) 128px, (min-width: 1024px) and (max-width: 1279.9px) 192px, (min-width: 1280px) 256px"
-            widths={[128, 192, 192 * 2, 256, 256 * 2]}
-            aspectRatio="1:1"
+            width={128}
+            height={128}
+            layout="fixed"
           />
         </div>
         <div

@@ -1,6 +1,7 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Picture } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
+import meImage from "../images/me.jpg"
 
 const { frontmatter } = Astro.props;
 ---
@@ -17,11 +18,11 @@ const { frontmatter } = Astro.props;
         <div class="flex items-center gap-4">
           <Picture
             class="rounded-full shadow-glow-lg md:shadow-glow-xl"
-            src="/me.jpg"
+            src={meImage}
             alt="Nimo smiling at the camera"
-            sizes="48px"
-            widths={[48, 48 * 2]}
-            aspectRatio="1:1"
+            width={48}
+            height={48}
+            layout="fixed"
           />
           <div>Nimo Beeren</div>
         </div>
