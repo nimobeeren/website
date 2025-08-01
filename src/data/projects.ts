@@ -24,6 +24,70 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    image: "/projects/ai-tinkerers-vton.jpg",
+    alt: "Thumbnail for AI Tinkerers Amsterdam (July Edition) featuring a talk about Gemini Flash and Virtual Try-on by Nimo Beeren (AI Engineer at iO). The host sponsor is Mindspace.",
+    type: ProjectType.Talk,
+    title: "Outfit-Maxxing with Virtual Try-On",
+    body: "Talk at AI Tinkerers about how I built dressme using virtual try-on and image segmentation.",
+    date: "2025-07-24",
+    url: "https://youtu.be/dZK3X6fogv8",
+    featured: true,
+  },
+  {
+    image: "/projects/ai-tinkerers-ctf-agent.jpg",
+    alt: "Thumbnail for AI Tinkerers and AdvancedJS Amsterdam featuring a talk about CTF-Agent: Hacking with Reasoning Models by Nimo Beeren (AI Engineer at iO). Sponsored by Xebia.",
+    type: ProjectType.Talk,
+    title: "Hacking with Reasoning Models",
+    body: "Talk at AI Tinkerers about solving CTF cybersecurity challenges with LLMs.",
+    date: "2025-06-25",
+    url: "https://youtu.be/sBLuS0Cpl8k",
+    featured: true,
+  },
+  {
+    image: "/projects/ctf-agent.jpg",
+    alt: `\
+Terminal output containing the following text:
+    
+🌐 {
+  method: 'GET'
+  url: 'https://oceans11.ctf.pOwnparty.nl/robots.txt',
+  headers: [],
+  body: ''
+}
+🌐 {
+  method: 'GET'
+  url: 'https://oceans11.ctf.pOwnparty.nl/admin'
+  headers: [ { name: 'Cookie', value: 'session=eyJ1c2VybmFtZSI6ImFkbWLuIn0=' } ],
+  body: ''
+}
+🌐 {
+  method: 'GET'
+  url: 'https://oceans11.ctf.pownparty.nl/t,
+  headers: [ { name: 'Cookie', value: 'session=eyJ1c2VybmFtZSI6ImFkbWLuIn0=' } ],
+  body: ''
+}
+🏁 I've successfully accessed the admin view and retrieved the flag:
+
+CTF{df9cef93a5c03f25482eb4192de9bd17}
+🪜 Took 9 steps
+⌛ Took 53.54s`,
+    type: ProjectType.Tool,
+    title: "CTF Agent",
+    body: "An AI agent that solves Capture-The-Flag (CTF) cybersecurity challenges.",
+    date: "2025-06-18",
+    url: "https://github.com/nimobeeren/ctf-agent",
+  },
+  {
+    image: "/projects/dressme.jpg",
+    alt: "An interface containing a list of clothing items and a person wearing the selected items.",
+    type: ProjectType.App,
+    title: "dressme",
+    body: "A virtual wardrobe that shows you how clothes look on you and lets you save outfits.",
+    date: "2024-09-28",
+    url: "https://github.com/nimobeeren/dressme",
+    featured: true,
+  },
+  {
     image: "/projects/talksnap.png",
     alt: "An interface containing a transcript with highlighted segments on the left, and summaries of the highlighted segments on the right.",
     type: ProjectType.App,
@@ -51,7 +115,6 @@ export const projects: Project[] = [
     body: "After completing my thesis, I compiled the main results into a short paper which was published and presented at the 26th EDBT conference.",
     date: "2023-03-20",
     url: "https://dx.doi.org/10.48786/edbt.2023.40",
-    featured: false,
   },
   {
     image: "/projects/thesis.jpg",
@@ -71,17 +134,15 @@ export const projects: Project[] = [
     body: "I interviewed people from Google, Uber, LinkedIn and TigerGraph with the goal of designing a UI that helps people work with property graph schemas.",
     date: "2022-01-10",
     url: "https://arxiv.org/abs/2201.03643",
-    featured: true,
   },
   {
     image: "/projects/webtex.png",
     alt: "WebTeX",
-    type: ProjectType.Tool,
+    type: ProjectType.App,
     title: "WebTeX",
     body: "Frustrated with LaTeX, I developed a tool for scientific and technical writing based on Markdown. It supports math, citations, and cross-references.",
     date: "2021-12-09",
     url: "https://webtex.vercel.app/",
-    featured: true,
   },
   {
     image: "/projects/vr-search.png",
@@ -127,7 +188,7 @@ export const projects: Project[] = [
     body: "This was a fun challenge to implement some algorithms using functional programming patterns in Reason.",
     date: "2020-11-02",
     url: "https://algo-vis.vercel.app/",
-    featured: true,
+    featured: false,
   },
   {
     emoji: "🎧️",
