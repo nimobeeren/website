@@ -11,6 +11,7 @@ import dressmeImage from "../images/projects/dressme.jpg";
 import droneImage from "../images/projects/drone.png";
 import frontmaniaImage from "../images/projects/frontmania.jpg";
 import scrimValorantImage from "../images/projects/scrim-valorant.png";
+import strandsSolverImage from "../images/projects/strands-solver.png";
 import studyGuideImage from "../images/projects/study-guide.png";
 import talksnapImage from "../images/projects/talksnap.png";
 import thermostatImage from "../images/projects/thermostat.png";
@@ -44,6 +45,16 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    image: strandsSolverImage,
+    alt: "A grid of letters with words marked in blue and yellow.",
+    type: ProjectType.Tool,
+    title: "Strands Solver",
+    body: "A solver for Strands, the New York Times puzzle game. A fun algorithms challenge for a game I like to play.",
+    date: "2025-12-02",
+    url: "https://github.com/nimobeeren/strands-solver",
+    featured: true,
+  },
   {
     image: aiTinkerersVtonImage,
     alt: "Thumbnail for AI Tinkerers Amsterdam (July Edition) featuring a talk about Gemini Flash and Virtual Try-on by Nimo Beeren (AI Engineer at iO). The host sponsor is Mindspace.",
@@ -116,7 +127,6 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     body: "Live transcribes conference talks/meetings/conversations and quickly summarizes the last talking point at the press of a button.",
     date: "2024-08-02",
     url: "https://talksnap.vercel.app/",
-    featured: true,
   },
   {
     image: frontmaniaImage,
