@@ -48,7 +48,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     image: pipsPlusImage,
-    alt: "A heart-shaped domino puzzle board with colorful regions and constraint labels, with domino pieces below ready to be placed.",
+    alt: "A V-shaped domino puzzle board with colorful regions and constraint labels, with domino pieces below ready to be placed.",
     type: ProjectType.Game,
     title: "Pips+",
     body: "A domino puzzle game inspired by the NYT's Pips. Place dominoes on the board so that every colored region's constraint is satisfied.",
