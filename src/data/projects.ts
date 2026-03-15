@@ -1,5 +1,6 @@
 import type { ImageMetadata } from "astro";
 import aiTinkerersCtfAgentImage from "../images/projects/ai-tinkerers-ctf-agent.jpg";
+import pipsPlusImage from "../images/projects/pips-plus.png";
 import aiTinkerersVtonImage from "../images/projects/ai-tinkerers-vton.jpg";
 import algoVisImage from "../images/projects/algo-vis.png";
 import birdvisImage from "../images/projects/birdvis.png";
@@ -45,6 +46,16 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    image: pipsPlusImage,
+    alt: "A V-shaped domino puzzle board with colorful regions and constraint labels, with domino pieces below ready to be placed.",
+    type: ProjectType.Game,
+    title: "Pips+",
+    body: "A domino puzzle game inspired by the NYT's Pips. Place dominoes on the board so that every colored region's constraint is satisfied.",
+    date: "2026-03-14",
+    url: "https://pips-plus.vercel.app/",
+    featured: true,
+  },
   {
     image: strandsSolverImage,
     alt: "A grid of letters with words marked in blue and yellow.",
@@ -136,7 +147,6 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     body: "At this conference, I talked about using E2E tests to improve your workflow as a developer. I had a great time!",
     date: "2023-10-12",
     url: "https://www.youtube.com/watch?v=-mNp_wV-Ok8",
-    featured: true,
   },
   {
     emoji: "📝",
