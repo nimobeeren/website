@@ -19,6 +19,7 @@ import thermostatImage from "../images/projects/thermostat.png";
 import thesisImage from "../images/projects/thesis.jpg";
 import twitchStatsImage from "../images/projects/twitch-stats.png";
 import vrSearchImage from "../images/projects/vr-search.png";
+import qheartImage from "../images/projects/qheart.png";
 import webtexImage from "../images/projects/webtex.png";
 
 export enum ProjectType {
@@ -55,6 +56,15 @@ export const projects: Project[] = [
     date: "2026-03-14",
     url: "https://pips-plus.vercel.app/",
     featured: true,
+  },
+  {
+    image: qheartImage,
+    alt: "A heart-shaped QR code in pink on a light pink background, with the text 'QR My Heart' next to it.",
+    type: ProjectType.App,
+    title: "qheart",
+    body: "A simple web app to generate heart-shaped QR codes.",
+    date: "2026-02-11",
+    url: "https://qheart.vercel.app/",
   },
   {
     image: strandsSolverImage,
