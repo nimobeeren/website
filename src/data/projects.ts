@@ -157,6 +157,7 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     body: "At this conference, I talked about using E2E tests to improve your workflow as a developer. I had a great time!",
     date: "2023-10-12",
     url: "https://www.youtube.com/watch?v=-mNp_wV-Ok8",
+    featured: true,
   },
   {
     emoji: "📝",
@@ -175,7 +176,6 @@ CTF{df9cef93a5c03f25482eb4192de9bd17}
     body: "In my master's thesis, I formulated a practical and comprehensive schema language for graph databases, which I applied to systems like Neo4j.",
     date: "2022-10-16",
     url: "https://github.com/nimobeeren/thesis/",
-    featured: true,
   },
   {
     emoji: "🗂️",
